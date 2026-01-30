@@ -94,7 +94,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
                   <FlipText text={`/${t('open')}/`} />
                 </h3>
                 <a
-                  href="https://step-app.example.com"
+                  href="https://step-front.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="card-header-btn flex-shrink-0"
@@ -189,7 +189,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
                   <FlipText text={`/${t('openTheProject')}/`} />
                 </h3>
                 <a
-                  href="https://step-app.example.com"
+                  href="https://step-front.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="card-header-btn absolute top-0.5 right-0.5"
