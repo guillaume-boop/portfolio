@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400&display=swap');
+
+@font-face {
+  font-family: 'Ethnocentric';
+  src: url('/src/assets/fonts/Ethnocentric-Regular.woff2') format('woff2'),
+       url('/src/assets/fonts/Ethnocentric-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +14,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
+    --background: 0 0% 8%;
     --foreground: 0 0% 93%;
 
     --card: 0 0% 6%;
@@ -43,8 +51,9 @@
     --step-pink: 300 100% 80%;
 
     /* Typography */
-    --font-display: 'Orbitron', sans-serif;
-    --font-body: 'Space Grotesk', sans-serif;
+    --font-display: 'Ethnocentric', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Ethnocentric', sans-serif;
   }
 
   .dark {
@@ -59,19 +68,20 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: rgb(20, 20, 20);
+    @apply text-foreground;
     font-family: var(--font-body);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+    font-family: var(--font-heading);
   }
 }
 
 @layer components {
   /* Portfolio Card Styles */
   .portfolio-card {
-    @apply bg-card border-2 border-foreground cursor-grab active:cursor-grabbing;
+    @apply bg-card cursor-grab active:cursor-grabbing;
     transition: box-shadow 0.1s ease;
   }
 
@@ -79,10 +89,34 @@
     box-shadow: 4px 4px 0 hsl(var(--foreground) / 0.3);
   }
 
+  .portfolio-card.no-shadow:hover {
+    box-shadow: none;
+  }
+
+  /* Card border color */
+  .card-border {
+    border-color: #929292;
+  }
+
   /* Title Style - /TITLE/ format */
   .portfolio-title {
     font-family: var(--font-display);
     @apply text-foreground font-bold italic tracking-wider uppercase;
+  }
+
+  /* Card header style with Ethnocentric font */
+  .card-header {
+    font-family: 'Ethnocentric', sans-serif;
+    @apply text-foreground font-bold uppercase tracking-wider;
+  }
+
+  /* Card header button style */
+  .card-header-btn {
+    @apply bg-gray-200 border border-gray-300 p-1 hover:bg-gray-300 transition-colors;
+  }
+
+  .card-header-btn svg {
+    @apply text-black;
   }
 
   /* Nav item style */
@@ -132,26 +166,26 @@
   }
 
   .letter-flip:hover {
-    transform: rotateX(180deg);
+    transform: rotateY(180deg);
   }
 
   /* Card pop animation */
   @keyframes card-pop {
     0% {
-      transform: scale(0.8);
+      transform: scale(0.6) translateY(-20px);
       opacity: 0;
     }
-    50% {
-      transform: scale(1.05);
+    70% {
+      transform: scale(1.08);
     }
     100% {
-      transform: scale(1);
+      transform: scale(1) translateY(0);
       opacity: 1;
     }
   }
 
   .animate-card-pop {
-    animation: card-pop 0.3s ease-out forwards;
+    animation: card-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   }
 
   /* Fade in up animation */
@@ -168,6 +202,42 @@
 
   .animate-fade-in-up {
     animation: fade-in-up 0.4s ease-out forwards;
+  }
+
+  /* Navbar slide-down animation */
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+      max-height: 0;
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 1000px;
+    }
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.3s ease-out forwards;
+  }
+
+  /* Navbar slide-up animation */
+  @keyframes slide-up {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 1000px;
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+      max-height: 0;
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.3s ease-in forwards;
   }
 }
 

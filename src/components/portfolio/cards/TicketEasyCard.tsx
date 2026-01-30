@@ -1,39 +1,39 @@
-import { useNavigate } from 'react-router-dom';
 import { Eye } from 'lucide-react';
 import FlipText from '../FlipText';
+import ticketEasyImg from '@/assets/ticket_easy.png';
 
 interface TicketEasyCardProps {
   className?: string;
+  onPageChange?: (page: string) => void;
 }
 
-const TicketEasyCard = ({ className = '' }: TicketEasyCardProps) => {
-  const navigate = useNavigate();
-
+const TicketEasyCard = ({ className = '', onPageChange }: TicketEasyCardProps) => {
   return (
-    <div className={`w-[280px] md:w-[320px] ${className}`}>
+    <div className={`w-[280px] md:w-[320px] border-2 card-border ${className}`}>
       {/* Header */}
-      <div className="flex items-center justify-between border-b-2 border-foreground p-3">
-        <h3 className="portfolio-title text-xl md:text-2xl">
-          <FlipText text="/TICKET EASY/" />
+      <div className="relative border-b-2 card-border px-3 pt-2">
+        <h3 className="card-header text-xl md:text-2xl">
+          <FlipText text="/TICKET-EASY/" />
         </h3>
         <button
           onClick={(e) => {
             e.stopPropagation();
-            navigate('/ticket-easy');
+            onPageChange?.('ticketEasy');
           }}
-          className="card-icon-btn"
-          aria-label="View Ticket Easy project"
+          className="card-header-btn absolute top-0.5 right-0.5"
+          aria-label="View Ticket-Easy project"
         >
           <Eye className="w-5 h-5" />
         </button>
       </div>
       
       {/* Content */}
-      <div className="p-6 flex items-center justify-center aspect-[4/3] bg-secondary">
-        <div className="text-center">
-          <div className="text-4xl mb-2">🎫</div>
-          <p className="text-muted-foreground text-sm">Event Ticketing</p>
-        </div>
+      <div className="p-6 flex items-center justify-center aspect-[4/3] bg-secondary overflow-hidden">
+        <img 
+          src={ticketEasyImg} 
+          alt="Ticket-Easy" 
+          className="w-full h-full object-contain" 
+        />
       </div>
     </div>
   );

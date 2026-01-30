@@ -1,66 +1,207 @@
+import { useEffect, useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 import PageTitle from '@/components/portfolio/PageTitle';
 import LanguageSwitcher from '@/components/portfolio/LanguageSwitcher';
-import TypewriterText from '@/components/portfolio/TypewriterText';
-import StepLogo from '@/components/portfolio/StepLogo';
 import FlipText from '@/components/portfolio/FlipText';
+import DraggableCard from '@/components/portfolio/DraggableCard';
 import { useLanguage } from '@/contexts/LanguageContext';
+import stepImg from '@/assets/step-logo.png';
 
-const StepPage = () => {
+interface StepPageProps {
+  onPageChange?: (page: string | null) => void;
+}
+
+const StepPage = ({ onPageChange }: StepPageProps) => {
   const { t } = useLanguage();
+  const [isMobile, setIsMobile] = useState(false);
 
-  return (
-    <div className="min-h-screen bg-background p-6 md:p-12">
-      {/* Header */}
-      <div className="mb-12">
-        <PageTitle title="STEP" />
-      </div>
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
-      {/* Content Grid */}
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start justify-center mt-12 lg:mt-24">
-        {/* Text Content */}
-        <div className="w-full lg:w-1/2 max-w-lg">
-          {/* Section Title */}
-          <div className="border-2 border-foreground p-3 mb-0 bg-card inline-block">
-            <h2 className="portfolio-title text-lg md:text-xl">
-              <FlipText text={`/${t('itsWhat')}/`} />
-            </h2>
-          </div>
-
-          {/* Description Box */}
-          <div className="border-2 border-t-0 border-foreground p-4 md:p-6 bg-card">
-            <p className="font-body text-foreground leading-relaxed text-sm md:text-base">
-              <TypewriterText text={t('stepDesc')} speed={20} />
-            </p>
-          </div>
-
-          {/* View Button */}
-          <div className="mt-4">
-            <a
-              href="https://step-app.example.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-4 border-2 border-foreground bg-card px-4 py-3 hover:bg-foreground hover:text-background transition-colors duration-100"
-            >
-              <span className="portfolio-title text-lg">
-                <FlipText text={`/${t('view')}/`} />
-              </span>
-              <ExternalLink className="w-5 h-5" />
-            </a>
-          </div>
+  // Mobile view - centered cards
+  if (isMobile) {
+    return (
+      <div className="min-h-screen bg-background p-6 flex flex-col overflow-x-hidden">
+        {/* Header */}
+        <div className="mb-8">
+          <PageTitle title="STEP" onPageChange={onPageChange} showNav={true} />
         </div>
 
-        {/* Logo */}
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+        {/* Scrollable content */}
+        <div className="flex-1 overflow-y-auto flex flex-col items-center justify-start gap-8 py-8">
+          {/* Logo */}
           <div className="animate-card-pop">
-            <StepLogo className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96" />
+            <img src={stepImg} alt="Step" className="w-48 h-auto object-contain rounded-full" />
+          </div>
+
+          {/* The Project Card */}
+          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '80ms' }}>
+            <div className="border-2 card-border bg-card">
+              <div className="border-b-2 card-border px-4 py-3">
+                <h2 className="card-header text-lg">
+                  <FlipText text={`/${t('theProject')}/`} />
+                </h2>
+              </div>
+              <div className="p-4">
+                <p className="font-body text-foreground leading-relaxed text-sm">
+                  {t('stepDesc')}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Blockchain Advantages Card */}
+          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '160ms' }}>
+            <div className="border-2 card-border bg-card">
+              <div className="border-b-2 card-border px-4 py-3">
+                <h3 className="card-header text-lg">
+                  <FlipText text={`/${t('blockchainAdvantages')}/`} />
+                </h3>
+              </div>
+              <div className="p-4">
+                <p className="font-body text-foreground leading-relaxed text-sm">
+                  {t('blockchainDesc')}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Investment Advantages Card */}
+          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '240ms' }}>
+            <div className="border-2 card-border bg-card">
+              <div className="border-b-2 card-border px-4 py-3">
+                <h3 className="card-header text-lg">
+                  <FlipText text={`/${t('investmentAdvantages')}/`} />
+                </h3>
+              </div>
+              <div className="p-4">
+                <p className="font-body text-foreground leading-relaxed text-sm">
+                  {t('investmentDesc')}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Open Project Card */}
+          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '320ms' }}>
+            <div className="border-2 card-border bg-card">
+              <div className="border-b-2 card-border px-4 py-3 flex items-center justify-between gap-2">
+                <h3 className="card-header text-lg flex-1 pr-2">
+                  <FlipText text={`/${t('open')}/`} />
+                </h3>
+                <a
+                  href="https://step-app.example.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card-header-btn flex-shrink-0"
+                  aria-label="Open STEP project"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
+
+        {/* Footer */}
+        <div className="mt-8">
+          <LanguageSwitcher />
+        </div>
+      </div>
+    );
+  }
+
+  // Desktop view - draggable cards
+  return (
+    <div className="min-h-screen bg-background overflow-hidden relative">
+      {/* Header - Top Left */}
+      <div className="fixed top-6 left-6 z-50">
+        <PageTitle title="STEP" onPageChange={onPageChange} showNav={true} />
       </div>
 
-      {/* Footer */}
-      <div className="fixed bottom-6 left-6">
+      {/* Language Switcher - Bottom Left */}
+      <div className="fixed bottom-6 left-6 z-50">
         <LanguageSwitcher />
+      </div>
+
+      {/* Draggable Cards Container */}
+      <div className="w-full h-screen">
+        {/* Logo Card - Top Center/Left */}
+        <DraggableCard initialX={350} initialY={60} zIndex={0} isRaw={true}>
+          <div className="animate-card-pop">
+            <img src={stepImg} alt="Step" className="w-64 md:w-72 h-auto object-contain cursor-grab active:cursor-grabbing rounded-full user-select-none" />
+          </div>
+        </DraggableCard>
+
+        {/* Description Card - The Project - Right of Logo */}
+        <DraggableCard initialX={550} initialY={260} zIndex={2}>
+          <div className="animate-card-pop" style={{ animationDelay: '80ms' }}>
+            <div className="w-[280px] md:w-[340px] border-2 card-border bg-card">
+              {/* Card Header */}
+              <div className="border-b-2 card-border px-4 py-3">
+                <h2 className="card-header text-lg md:text-xl">
+                  <FlipText text={`/${t('theProject')}/`} />
+                </h2>
+              </div>
+
+              {/* Card Content */}
+              <div className="p-6">
+                <p className="font-body text-foreground leading-relaxed text-sm md:text-base">
+                  {t('stepDesc')}
+                </p>
+              </div>
+            </div>
+          </div>
+        </DraggableCard>
+
+        {/* Blockchain Advantages Card - Bottom Left */}
+        <DraggableCard initialX={280} initialY={420} zIndex={1}>
+          <div className="animate-card-pop" style={{ animationDelay: '160ms' }}>
+            <div className="w-[280px] md:w-[340px] border-2 card-border bg-card">
+              {/* Card Header */}
+              <div className="border-b-2 card-border px-4 py-3">
+                <h3 className="card-header text-lg md:text-xl">
+                  <FlipText text={`/${t('blockchainAdvantages')}/`} />
+                </h3>
+              </div>
+
+              {/* Card Content */}
+              <div className="p-6">
+                <p className="font-body text-foreground leading-relaxed text-sm md:text-base">
+                  {t('blockchainDesc')}
+                </p>
+              </div>
+            </div>
+          </div>
+        </DraggableCard>
+
+        {/* Open Project Card - Bottom Center */}
+        <DraggableCard initialX={600} initialY={600} zIndex={5}>
+          <div className="animate-card-pop" style={{ animationDelay: '240ms' }}>
+            <div className="w-[350px] md:w-[410px] border-2 card-border bg-card">
+              {/* Card Header with ExternalLink Button */}
+              <div className="relative border-b-2 card-border px-4 py-3">
+                <h3 className="card-header text-lg md:text-xl">
+                  <FlipText text={`/${t('openTheProject')}/`} />
+                </h3>
+                <a
+                  href="https://step-app.example.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card-header-btn absolute top-0.5 right-0.5"
+                  aria-label="Open STEP project"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </DraggableCard>
+
       </div>
     </div>
   );

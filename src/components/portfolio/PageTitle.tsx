@@ -1,57 +1,171 @@
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import * as React from 'react';
+import { createPortal } from 'react-dom';
+import TypewriterText from './TypewriterText';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface PageTitleProps {
   title: string;
   showNav?: boolean;
+  onPageChange?: (page: string) => void;
 }
 
 const navItems = [
-  { key: 'profile', path: '/profile', label: '/PROFILE/' },
-  { key: 'ticketEasy', path: '/ticket-easy', label: '/TICKET EASY/' },
-  { key: 'step', path: '/step', label: '/STEP/' },
-  { key: 'linkedin', path: '/linkedin', label: '/LINKEDIN/' },
-  { key: 'github', path: '/github', label: '/GITHUB/' },
-  { key: 'contact', path: '/contact', label: '/CONTACT/' },
+  { key: 'home', label: '/HOME/' },
+  { key: 'profile', label: '/PROFILE/' },
+  { key: 'ticketEasy', label: '/TICKET-EASY/' },
+  { key: 'step', label: '/STEP/' },
+  { key: 'linkedin', label: '/LINKEDIN/' },
+  { key: 'github', label: '/GITHUB/' },
 ];
 
-const PageTitle = ({ title, showNav = true }: PageTitleProps) => {
-  const navigate = useNavigate();
+const PageTitle = ({ title, showNav = true, onPageChange }: PageTitleProps) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLDivElement>(null);
+  const [buttonWidth, setButtonWidth] = useState(0);
+  const [buttonPos, setButtonPos] = useState({ top: 0, left: 0 });
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const { language } = useLanguage();
+
+  // Show nav button on desktop or when showNav is explicitly true
+  const shouldShowNav = showNav || window.innerWidth >= 768;
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsNavOpen(false);
+      setIsClosing(false);
+    }, 300); // Match animation duration
+  };
+
+  const handleButtonClick = () => {
+    if (buttonRef.current) {
+      setButtonWidth(buttonRef.current.offsetWidth);
+      setButtonPos({
+        top: buttonRef.current.offsetTop + buttonRef.current.offsetHeight,
+        left: buttonRef.current.offsetLeft
+      });
+    }
+    setIsNavOpen(!isNavOpen);
+  };
+
+  // Recalculate position when nav opens
+  useEffect(() => {
+    if (isNavOpen && buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      setButtonPos({
+        top: rect.top + rect.height,
+        left: rect.left
+      });
+    }
+  }, [isNavOpen]);
+
+  // Close navbar when clicking outside or dragging cards
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isNavOpen && navRef.current && buttonRef.current) {
+        if (!navRef.current.contains(event.target as Node) && 
+            !buttonRef.current.contains(event.target as Node)) {
+          handleClose();
+        }
+      }
+    };
+
+    const handleDragStart = () => {
+      if (isNavOpen) {
+        handleClose();
+      }
+    };
+
+    if (isNavOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('dragstart', handleDragStart);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('dragstart', handleDragStart);
+    };
+  }, [isNavOpen]);
 
   return (
-    <div className="relative">
-      <button
-        onClick={() => setIsNavOpen(!isNavOpen)}
-        className="portfolio-title text-2xl md:text-3xl bg-card border-2 border-foreground px-4 py-3 hover:bg-foreground hover:text-background transition-colors duration-100"
-      >
-        /{title}/
-      </button>
+    <>
+      <div className="relative">
+        <button
+          ref={buttonRef}
+          onClick={handleButtonClick}
+          className="text-2xl md:text-3xl px-4 pt-2 font-bold tracking-wider uppercase transition-colors"
+          style={{
+            fontFamily: "'Ethnocentric', sans-serif",
+            backgroundColor: 'rgba(0, 0, 0, 0.2)',
+            color: '#ffffff'
+          }}
+        >
+          <TypewriterText 
+            text={`/${title}/`}
+            speed={40}
+            delay={0}
+            showCursor={false}
+            key={title}
+          />
+        </button>
+      </div>
 
-      {showNav && isNavOpen && (
-        <nav className="absolute top-full left-0 z-50 mt-0">
-          {navItems.map((item, index) => (
-            <button
-              key={item.key}
-              onClick={() => {
-                if (item.key === 'linkedin') {
-                  window.open('https://linkedin.com', '_blank');
-                } else if (item.key === 'github') {
-                  window.open('https://github.com', '_blank');
-                } else {
-                  navigate(item.path);
-                }
-                setIsNavOpen(false);
-              }}
-              className="nav-item block w-full text-left text-lg md:text-xl border-t-0 first:border-t-2"
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              {item.label}
-            </button>
-          ))}
-        </nav>
+      {showNav && shouldShowNav && isNavOpen && createPortal(
+        <div 
+          ref={navRef}
+          style={{
+            position: 'fixed',
+            top: `${buttonPos.top}px`,
+            left: `${buttonPos.left}px`,
+            width: `${buttonWidth}px`,
+            zIndex: 999999
+          }}
+          className={isClosing ? 'animate-slide-up' : 'animate-slide-down'}
+        >
+          {navItems
+            .filter((item) => {
+              // Toujours afficher HOME
+              if (item.key === 'home') {
+                return true;
+              }
+              // Ne pas afficher la page actuelle
+              const currentPage = title.toUpperCase().replace(/-/g, '');
+              const itemPage = item.label.toUpperCase().replace(/\//g, '').replace(/-/g, '');
+              return currentPage !== itemPage;
+            })
+            .map((item) => (
+              <button
+                key={item.key}
+                onMouseEnter={() => setHoveredItem(item.key)}
+                onMouseLeave={() => setHoveredItem(null)}
+                onClick={() => {
+                  if (item.key === 'linkedin') {
+                    window.open('https://linkedin.com', '_blank');
+                  } else if (item.key === 'github') {
+                    window.open('https://github.com', '_blank');
+                  } else {
+                    onPageChange?.(item.key);
+                  }
+                  handleClose();
+                }}
+                className="block w-full text-left px-2 pt-2 pb-0 font-bold tracking-wider uppercase border-t-0 first:border-t-2 border-b-2 border-l-2 border-r-2 truncate transition-colors"
+                style={{ 
+                  fontFamily: "'Ethnocentric', sans-serif",
+                  borderColor: '#929292',
+                  backgroundColor: hoveredItem === item.key ? '#B3B3B3' : 'rgb(20, 20, 20)',
+                  color: hoveredItem === item.key ? '#000000' : '#ffffff'
+                }}
+              >
+                {item.label}
+              </button>
+            ))}
+        </div>,
+        document.body
       )}
-    </div>
+    </>
   );
 };
 

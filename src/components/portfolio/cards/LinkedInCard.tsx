@@ -1,5 +1,6 @@
 import { ExternalLink } from 'lucide-react';
 import FlipText from '../FlipText';
+import linkedinImg from '@/assets/linkedin.jpeg';
 
 interface LinkedInCardProps {
   className?: string;
@@ -8,10 +9,10 @@ interface LinkedInCardProps {
 
 const LinkedInCard = ({ className = '', linkedInUrl = 'https://linkedin.com' }: LinkedInCardProps) => {
   return (
-    <div className={`w-[280px] md:w-[320px] ${className}`}>
+    <div className={`w-[280px] md:w-[320px] border-2 card-border ${className}`}>
       {/* Header */}
-      <div className="flex items-center justify-between border-b-2 border-foreground p-3">
-        <h3 className="portfolio-title text-xl md:text-2xl">
+      <div className="relative border-b-2 card-border px-3 pt-2">
+        <h3 className="card-header text-xl md:text-2xl">
           <FlipText text="/LINKEDIN/" />
         </h3>
         <a
@@ -19,7 +20,7 @@ const LinkedInCard = ({ className = '', linkedInUrl = 'https://linkedin.com' }: 
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="card-icon-btn"
+          className="card-header-btn absolute top-0.5 right-0.5"
           aria-label="Open LinkedIn profile"
         >
           <ExternalLink className="w-5 h-5" />
@@ -27,13 +28,12 @@ const LinkedInCard = ({ className = '', linkedInUrl = 'https://linkedin.com' }: 
       </div>
       
       {/* Content - Placeholder for latest post */}
-      <div className="p-6 flex items-center justify-center aspect-[4/3] bg-secondary">
-        <div className="text-center">
-          <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-[#0077B5] flex items-center justify-center">
-            <span className="text-2xl font-bold text-white">in</span>
-          </div>
-          <p className="text-muted-foreground text-sm">Latest post</p>
-        </div>
+      <div className="flex items-center justify-center aspect-[4/3] bg-secondary overflow-hidden">
+        <img 
+          src={linkedinImg} 
+          alt="LinkedIn" 
+          className="w-full h-full object-cover" 
+        />
       </div>
     </div>
   );

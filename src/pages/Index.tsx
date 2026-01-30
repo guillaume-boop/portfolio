@@ -8,53 +8,77 @@ import ContactCard from '@/components/portfolio/cards/ContactCard';
 import LinkedInCard from '@/components/portfolio/cards/LinkedInCard';
 import TicketEasyCard from '@/components/portfolio/cards/TicketEasyCard';
 import ProfileCard from '@/components/portfolio/cards/ProfileCard';
+import TypewriterText from '@/components/portfolio/TypewriterText';
 import { useLanguage } from '@/contexts/LanguageContext';
+import StepPage from './StepPage';
+import TicketEasyPage from './TicketEasyPage';
+import ProfilePage from './ProfilePage';
 
 const Index = () => {
   const { t } = useLanguage();
   const [isMobile, setIsMobile] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [currentPage, setCurrentPage] = useState<string | null>(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
-    // Trigger load animation
-    setTimeout(() => setIsLoaded(true), 100);
+    // Trigger load animation immediately
+    setIsLoaded(true);
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Show page content if page is selected
+  if (currentPage === 'step') {
+    return <StepPage onPageChange={setCurrentPage} />;
+  }
+  if (currentPage === 'ticketEasy') {
+    return <TicketEasyPage onPageChange={setCurrentPage} />;
+  }
+  if (currentPage === 'profile') {
+    return <ProfilePage onPageChange={setCurrentPage} />;
+  }
+
   // Mobile view - simple list navigation
   if (isMobile) {
     return (
-      <div className="min-h-screen bg-background p-6 flex flex-col">
+      <div className="min-h-screen bg-background p-6 flex flex-col overflow-x-hidden">
         {/* Header */}
         <div className="mb-12">
           <PageTitle title={t('home')} showNav={false} />
         </div>
 
         {/* Navigation Cards */}
-        <nav className="flex-1 flex flex-col items-center justify-center gap-3">
+        <nav className="flex-1 flex flex-col items-center justify-center gap-6 mx-12">
           {[
-            { label: 'PROFILE', path: '/profile' },
-            { label: 'TICKET-EASY', path: '/ticket-easy' },
-            { label: 'STEP', path: '/step' },
-            { label: 'LINKEDIN', path: '/linkedin', external: true },
-            { label: 'GITHUB', path: '/github', external: true },
-            { label: 'CONTACT', path: '/contact' },
+            { label: '/PROFILE/', key: 'profile', external: false },
+            { label: '/TICKET-EASY/', key: 'ticketEasy', external: false },
+            { label: '/STEP/', key: 'step', external: false },
+            { label: '/LINKEDIN/', key: 'linkedin', external: true, url: 'https://www.linkedin.com/in/guillaume-alameda-92b533217/' },
+            { label: '/GITHUB/', key: 'github', external: true, url: 'https://github.com/guillaume-boop' },
           ].map((item, index) => (
-            <a
+            <button
               key={item.label}
-              href={item.external ? (item.label === 'LINKEDIN' ? 'https://linkedin.com' : 'https://github.com') : item.path}
-              target={item.external ? '_blank' : undefined}
-              rel={item.external ? 'noopener noreferrer' : undefined}
-              className={`nav-item w-full max-w-xs text-center animate-fade-in-up`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              onClick={() => {
+                if (item.external) {
+                  window.open(item.url, '_blank');
+                } else {
+                  setCurrentPage(item.key);
+                }
+              }}
+              className="w-full max-w-xs text-left animate-fade-in-up text-foreground font-bold italic tracking-wider uppercase px-4 py-3 transition-colors border-0 bg-transparent cursor-pointer"
+              style={{ animationDelay: `${index * 100}ms`, backgroundColor: 'rgba(0, 0, 0, 0.2)', fontFamily: "'Ethnocentric', sans-serif" }}
             >
-              {item.label}
-            </a>
+              <TypewriterText 
+                text={item.label}
+                speed={40}
+                delay={index * 100 + 500}
+                showCursor={false}
+              />
+            </button>
           ))}
         </nav>
 
@@ -71,7 +95,7 @@ const Index = () => {
     <div className="min-h-screen bg-background overflow-hidden relative">
       {/* Header - Top Left */}
       <div className="fixed top-6 left-6 z-50">
-        <PageTitle title={t('home')} />
+        <PageTitle title={t('home')} onPageChange={setCurrentPage} />
       </div>
 
       {/* Language Switcher - Bottom Left */}
@@ -80,45 +104,46 @@ const Index = () => {
       </div>
 
       {/* Draggable Cards Container */}
-      <div className={`w-full h-screen ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}>
-        {/* STEP Card - Main focus, center-ish */}
-        <DraggableCard initialX={300} initialY={120} zIndex={3}>
-          <div className="animate-card-pop">
-            <StepCard />
+      <div className="w-full h-screen">
+        {/* STEP Card - Top center-left */}
+        <DraggableCard initialX={280} initialY={80} zIndex={0}>
+          <div className="animate-card-pop" style={{ animationDelay: '0ms' }}>
+            <StepCard onPageChange={setCurrentPage} />
           </div>
         </DraggableCard>
 
-        {/* GitHub Card - Right side */}
-        <DraggableCard initialX={720} initialY={350} zIndex={2}>
-          <div className="animate-card-pop" style={{ animationDelay: '100ms' }}>
-            <GitHubCard />
+        {/* TICKET-EASY Card - Top right */}
+        <DraggableCard initialX={850} initialY={100} zIndex={1}>
+          <div className="animate-card-pop" style={{ animationDelay: '80ms' }}>
+            <TicketEasyCard onPageChange={setCurrentPage} />
           </div>
         </DraggableCard>
 
-        {/* Contact Card - Bottom center */}
-        <DraggableCard initialX={500} initialY={520} zIndex={1}>
-          <div className="animate-card-pop" style={{ animationDelay: '200ms' }}>
-            <ContactCard />
-          </div>
-        </DraggableCard>
-
-        {/* Hidden cards - can be accessed via nav */}
-        {/* These are off-screen but draggable if user wants */}
-        <DraggableCard initialX={-400} initialY={200} zIndex={0}>
-          <div className="animate-card-pop" style={{ animationDelay: '300ms' }}>
+        {/* LINKEDIN Card - Left side */}
+        <DraggableCard initialX={120} initialY={280} zIndex={2}>
+          <div className="animate-card-pop" style={{ animationDelay: '160ms' }}>
             <LinkedInCard />
           </div>
         </DraggableCard>
 
-        <DraggableCard initialX={-400} initialY={400} zIndex={0}>
-          <div className="animate-card-pop" style={{ animationDelay: '400ms' }}>
-            <TicketEasyCard />
+        {/* GitHub Card - Center */}
+        <DraggableCard initialX={540} initialY={320} zIndex={3}>
+          <div className="animate-card-pop" style={{ animationDelay: '240ms' }}>
+            <GitHubCard />
           </div>
         </DraggableCard>
 
-        <DraggableCard initialX={1200} initialY={150} zIndex={0}>
-          <div className="animate-card-pop" style={{ animationDelay: '500ms' }}>
-            <ProfileCard />
+        {/* PROFILE Card - Right side */}
+        <DraggableCard initialX={1000} initialY={280} zIndex={4}>
+          <div className="animate-card-pop" style={{ animationDelay: '320ms' }}>
+            <ProfileCard onPageChange={setCurrentPage} />
+          </div>
+        </DraggableCard>
+
+        {/* Contact Card - Bottom center */}
+        <DraggableCard initialX={420} initialY={520} zIndex={5}>
+          <div className="animate-card-pop" style={{ animationDelay: '400ms' }}>
+            <ContactCard />
           </div>
         </DraggableCard>
       </div>

@@ -9,10 +9,10 @@ const ContactCard = ({ className = '' }: ContactCardProps) => {
   const { t } = useLanguage();
 
   return (
-    <div className={`w-[280px] md:w-[380px] ${className}`}>
+    <div className={`w-[280px] md:w-[380px] border-2 card-border ${className}`}>
       {/* Header */}
-      <div className="border-b-2 border-foreground p-3">
-        <h3 className="portfolio-title text-xl md:text-2xl">
+      <div className="border-b-2 card-border">
+        <h3 className="card-header text-xl md:text-2xl px-3 pt-2">
           <FlipText text="/CONTACT/" />
         </h3>
       </div>

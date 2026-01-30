@@ -19,11 +19,13 @@ const TypewriterText = ({
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    setDisplayedText('');
+    // Show first character immediately
+    setDisplayedText(text[0] || '');
     setIsComplete(false);
 
+    // Wait for delay, then start typewriter for remaining text
     const startTimeout = setTimeout(() => {
-      let currentIndex = 0;
+      let currentIndex = 1;
       
       const interval = setInterval(() => {
         if (currentIndex < text.length) {

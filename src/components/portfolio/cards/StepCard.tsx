@@ -1,28 +1,26 @@
-import { useNavigate } from 'react-router-dom';
 import { Eye } from 'lucide-react';
-import StepLogo from '../StepLogo';
 import FlipText from '../FlipText';
+import stepImg from '@/assets/step-logo.png';
 
 interface StepCardProps {
   className?: string;
+  onPageChange?: (page: string) => void;
 }
 
-const StepCard = ({ className = '' }: StepCardProps) => {
-  const navigate = useNavigate();
-
+const StepCard = ({ className = '', onPageChange }: StepCardProps) => {
   return (
-    <div className={`w-[300px] md:w-[400px] ${className}`}>
+    <div className={`w-[260px] md:w-[340px] border-2 card-border ${className}`}>
       {/* Header */}
-      <div className="flex items-center justify-between border-b-2 border-foreground p-3">
-        <h3 className="portfolio-title text-xl md:text-2xl">
+      <div className="relative border-b-2 card-border px-3 pt-2">
+        <h3 className="card-header text-xl md:text-2xl">
           <FlipText text="/STEP/" />
         </h3>
         <button
           onClick={(e) => {
             e.stopPropagation();
-            navigate('/step');
+            onPageChange?.('step');
           }}
-          className="card-icon-btn"
+          className="card-header-btn absolute top-0.5 right-0.5"
           aria-label="View STEP project"
         >
           <Eye className="w-5 h-5" />
@@ -30,8 +28,12 @@ const StepCard = ({ className = '' }: StepCardProps) => {
       </div>
       
       {/* Content */}
-      <div className="p-6 flex items-center justify-center bg-secondary aspect-square">
-        <StepLogo className="w-48 h-48 md:w-64 md:h-64" />
+      <div className="p-6 flex items-center justify-center bg-secondary aspect-square overflow-hidden">
+        <img 
+          src={stepImg} 
+          alt="STEP" 
+          className="w-full h-full object-contain" 
+        />
       </div>
     </div>
   );

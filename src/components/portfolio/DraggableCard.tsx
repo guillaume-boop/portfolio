@@ -4,6 +4,9 @@ import { Draggable } from 'gsap/Draggable';
 
 gsap.registerPlugin(Draggable);
 
+// Global z-index manager
+let maxZIndex = 100;
+
 interface DraggableCardProps {
   children: ReactNode;
   className?: string;
@@ -12,6 +15,7 @@ interface DraggableCardProps {
   zIndex?: number;
   onDragStart?: () => void;
   onDragEnd?: () => void;
+  isRaw?: boolean;
 }
 
 const DraggableCard = ({
@@ -22,6 +26,7 @@ const DraggableCard = ({
   zIndex = 1,
   onDragStart,
   onDragEnd,
+  isRaw = false,
 }: DraggableCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const draggableRef = useRef<Draggable[]>();
@@ -29,25 +34,19 @@ const DraggableCard = ({
   useEffect(() => {
     if (cardRef.current) {
       // Set initial position
-      gsap.set(cardRef.current, { x: initialX, y: initialY });
+      gsap.set(cardRef.current, { x: initialX, y: initialY, zIndex });
 
       // Create draggable - no inertia, immediate release
       draggableRef.current = Draggable.create(cardRef.current, {
         type: 'x,y',
         bounds: window,
-        inertia: false, // No inertia - sec/immediate release like Zutomayo
+        inertia: false, // No inertia - immediate release
         onDragStart: () => {
-          gsap.to(cardRef.current, { 
-            zIndex: 100, 
-            duration: 0 
-          });
+          maxZIndex += 1;
+          gsap.set(cardRef.current, { zIndex: maxZIndex });
           onDragStart?.();
         },
         onDragEnd: () => {
-          gsap.to(cardRef.current, { 
-            zIndex: zIndex, 
-            duration: 0.2 
-          });
           onDragEnd?.();
         },
       });
@@ -61,7 +60,7 @@ const DraggableCard = ({
   return (
     <div
       ref={cardRef}
-      className={`portfolio-card absolute ${className}`}
+      className={`${isRaw ? '' : 'portfolio-card'} absolute ${className}`}
       style={{ zIndex }}
     >
       {children}
