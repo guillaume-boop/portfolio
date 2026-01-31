@@ -7,7 +7,7 @@ interface GitHubCardProps {
   githubUrl?: string;
 }
 
-const GitHubCard = ({ className = '', githubUrl = 'https://github.com' }: GitHubCardProps) => {
+const GitHubCard = ({ className = '', githubUrl = 'https://github.com/guillaume-boop' }: GitHubCardProps) => {
   return (
     <div className={`w-[280px] md:w-[320px] border-2 card-border ${className}`}>
       {/* Header */}

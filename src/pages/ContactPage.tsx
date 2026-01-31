@@ -28,7 +28,7 @@ const ContactPage = () => {
           <div className="border-2 border-foreground bg-card">
             {/* Header */}
             <div className="border-b-2 border-foreground p-4">
-              <h2 className="portfolio-title text-xl md:text-2xl">
+              <h2 className="portfolio-title text-xl md:text-2xl" translate="no">
                 <FlipText text="/CONTACT/" />
               </h2>
             </div>

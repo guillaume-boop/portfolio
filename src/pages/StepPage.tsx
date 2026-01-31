@@ -40,9 +40,9 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
 
           {/* The Project Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '80ms' }}>
-            <div className="border-2 card-border bg-card">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 py-3">
-                <h2 className="card-header text-lg">
+                <h2 className="card-header text-lg" translate="no">
                   <FlipText text={`/${t('theProject')}/`} />
                 </h2>
               </div>
@@ -56,9 +56,9 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
 
           {/* Blockchain Advantages Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '160ms' }}>
-            <div className="border-2 card-border bg-card">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 py-3">
-                <h3 className="card-header text-lg">
+                <h3 className="card-header text-lg" translate="no">
                   <FlipText text={`/${t('blockchainAdvantages')}/`} />
                 </h3>
               </div>
@@ -72,9 +72,9 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
 
           {/* Investment Advantages Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '240ms' }}>
-            <div className="border-2 card-border bg-card">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 py-3">
-                <h3 className="card-header text-lg">
+                <h3 className="card-header text-lg" translate="no">
                   <FlipText text={`/${t('investmentAdvantages')}/`} />
                 </h3>
               </div>
@@ -88,9 +88,9 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
 
           {/* Open Project Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '320ms' }}>
-            <div className="border-2 card-border bg-card">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 py-3 flex items-center justify-between gap-2">
-                <h3 className="card-header text-lg flex-1 pr-2">
+                <h3 className="card-header text-lg flex-1 pr-2" translate="no">
                   <FlipText text={`/${t('open')}/`} />
                 </h3>
                 <a
@@ -143,7 +143,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
             <div className="w-[280px] md:w-[340px] border-2 card-border bg-card">
               {/* Card Header */}
               <div className="border-b-2 card-border px-4 py-3">
-                <h2 className="card-header text-lg md:text-xl">
+                <h2 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('theProject')}/`} />
                 </h2>
               </div>
@@ -164,7 +164,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
             <div className="w-[280px] md:w-[340px] border-2 card-border bg-card">
               {/* Card Header */}
               <div className="border-b-2 card-border px-4 py-3">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('blockchainAdvantages')}/`} />
                 </h3>
               </div>
@@ -185,7 +185,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
             <div className="w-[350px] md:w-[410px] border-2 card-border bg-card">
               {/* Card Header with ExternalLink Button */}
               <div className="relative border-b-2 card-border px-4 py-3">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('openTheProject')}/`} />
                 </h3>
                 <a

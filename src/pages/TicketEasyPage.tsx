@@ -40,16 +40,16 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
           {/* Logo */}
                   {/* Logo Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '10ms' }}>
-            <div className={`border-2 card-border`}>
+            <div className={`w-[90%] sm:w-[320px] md:w-[320px] lg:w-[360px] xl:w-[400px] border-2 card-border mx-auto`}>
               {/* Header */}
               <div className="relative border-b-2 card-border px-3 pt-2 bg-card">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text="/Logo/" />
                 </h3>
               </div>
               
               {/* Content */}
-              <div className="p-6 flex items-center justify-center aspect-[4/3] bg-border overflow-hidden">
+              <div className="p-6 flex items-center justify-center aspect-[4/3] bg-secondary overflow-hidden">
                 <img 
                   src={ticketEasyImg} 
                   alt="Ticket-Easy" 
@@ -61,9 +61,9 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
 
           {/* Description Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '80ms' }}>
-            <div className="border-2 card-border bg-card">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('description')}/`} />
                 </h3>
               </div>
@@ -77,9 +77,9 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
 
           {/* Kiosk 3D Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '480ms' }}>
-            <div className="border-2 card-border bg-card overflow-hidden">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card overflow-hidden mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
-                <h3 className="card-header text-lg">
+                <h3 className="card-header text-lg" translate="no">
                   <FlipText text={`/${t('kiosk3d')}/`} />
                 </h3>
               </div>
@@ -91,9 +91,9 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
 
           {/* Realization Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '240ms' }}>
-            <div className="border-2 card-border bg-card">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
-                <h3 className="card-header text-lg">
+                <h3 className="card-header text-lg" translate="no">
                   <FlipText text={`/${t('realisation')}/`} />
                 </h3>
               </div>
@@ -107,9 +107,9 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
 
           {/* Interface Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '400ms' }}>
-            <div className="border-2 card-border bg-card overflow-hidden">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card overflow-hidden mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
-                <h3 className="card-header text-lg">
+                <h3 className="card-header text-lg" translate="no">
                   <FlipText text={`/${t('interface')}/`} />
                 </h3>
               </div>
@@ -121,9 +121,9 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
 
           {/* Dashboard Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '320ms' }}>
-            <div className="border-2 card-border bg-card overflow-hidden">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card overflow-hidden mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
-                <h3 className="card-header text-lg">
+                <h3 className="card-header text-lg" translate="no">
                   <FlipText text={`/${t('dashboard')}/`} />
                 </h3>
               </div>
@@ -135,13 +135,13 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
 
           {/* View Project Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '160ms' }}>
-            <div className="border-2 card-border bg-card">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 py-3 flex items-center justify-between gap-2">
-                <h3 className="card-header text-lg flex-1 pr-2">
+                <h3 className="card-header text-lg flex-1 pr-2" translate="no">
                   <FlipText text={`/${t('view')}/`} />
                 </h3>
                 <a
-                  href="https://https://ticketeasy.tech/"
+                  href="https://ticketeasy.tech/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="card-header-btn flex-shrink-0"
@@ -206,7 +206,7 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
           <div className="animate-card-pop" style={{ animationDelay: '80ms' }}>
             <div className="w-[280px] md:w-[340px] border-2 card-border bg-card">
               <div className="border-b-2 card-border px-4 pt-2">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('description')}/`} />
                 </h3>
               </div>
@@ -224,7 +224,7 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
           <div className="animate-card-pop" style={{ animationDelay: '160ms' }}>
             <div className="w-[280px] md:w-[250px] border-2 card-border bg-card overflow-hidden">
               <div className="border-b-2 card-border px-4 pt-2">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('interface')}/`} />
                 </h3>
               </div>
@@ -240,7 +240,7 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
           <div className="animate-card-pop" style={{ animationDelay: '240ms' }}>
             <div className="w-[220px] md:w-[290px] border-2 card-border bg-card overflow-hidden">
               <div className="border-b-2 card-border px-4 pt-2">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('kiosk3d')}/`} />
                 </h3>
               </div>
@@ -256,7 +256,7 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
           <div className="animate-card-pop" style={{ animationDelay: '320ms' }}>
             <div className="w-[280px] md:w-[340px] border-2 card-border bg-card">
               <div className="border-b-2 card-border px-4 pt-2">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('realisation')}/`} />
                 </h3>
               </div>
@@ -274,7 +274,7 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
           <div className="animate-card-pop" style={{ animationDelay: '400ms' }}>
             <div className="w-[280px] md:w-[340px] border-2 card-border bg-card overflow-hidden">
               <div className="border-b-2 card-border px-4 pt-2">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('dashboard')}/`} />
                 </h3>
               </div>
@@ -290,7 +290,7 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
           <div className="animate-card-pop" style={{ animationDelay: '480ms' }}>
             <div className="w-[250px] md:w-[250px] border-2 card-border bg-card">
               <div className="relative border-b-2 card-border px-4 pt-2">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('view')}/`} />
                 </h3>
                 <a

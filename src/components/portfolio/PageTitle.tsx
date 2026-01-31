@@ -120,20 +120,18 @@ const PageTitle = ({ title, showNav = true, onPageChange }: PageTitleProps) => {
             position: 'fixed',
             top: `${buttonPos.top}px`,
             left: `${buttonPos.left}px`,
-            width: `${buttonWidth}px`,
+            width: 'auto',
+            minWidth: `${buttonWidth}px`,
+            maxWidth: 'calc(100vw - 20px)',
             zIndex: 999999
           }}
           className={isClosing ? 'animate-slide-up' : 'animate-slide-down'}
         >
           {navItems
             .filter((item) => {
-              // Toujours afficher HOME
-              if (item.key === 'home') {
-                return true;
-              }
               // Ne pas afficher la page actuelle
-              const currentPage = title.toUpperCase().replace(/-/g, '');
-              const itemPage = item.label.toUpperCase().replace(/\//g, '').replace(/-/g, '');
+              const currentPage = title.toUpperCase().replace(/-/g, '').replace(/\s/g, '');
+              const itemPage = item.label.toUpperCase().replace(/\//g, '').replace(/-/g, '').replace(/\s/g, '');
               return currentPage !== itemPage;
             })
             .map((item) => (
@@ -143,15 +141,15 @@ const PageTitle = ({ title, showNav = true, onPageChange }: PageTitleProps) => {
                 onMouseLeave={() => setHoveredItem(null)}
                 onClick={() => {
                   if (item.key === 'linkedin') {
-                    window.open('https://linkedin.com', '_blank');
+                    window.open('https://www.linkedin.com/in/guillaume-alameda-92b533217/', '_blank');
                   } else if (item.key === 'github') {
-                    window.open('https://github.com', '_blank');
+                    window.open('https://github.com/guillaume-boop', '_blank');
                   } else {
                     onPageChange?.(item.key);
                   }
                   handleClose();
                 }}
-                className="block w-full text-left px-2 pt-2 pb-0 font-bold tracking-wider uppercase border-t-0 first:border-t-2 border-b-2 border-l-2 border-r-2 truncate transition-colors"
+                className="block w-full text-left px-4 pt-2 pb-0 font-bold tracking-wider uppercase border-t-0 first:border-t-2 border-b-2 border-l-2 border-r-2 whitespace-nowrap transition-colors"
                 style={{ 
                   fontFamily: "'Ethnocentric', sans-serif",
                   borderColor: '#929292',

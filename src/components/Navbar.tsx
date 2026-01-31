@@ -41,7 +41,7 @@ const Navbar = () => {
         .map((item) => (
           <a
             key={item.label}
-            href={item.external ? (item.label === '/LINKEDIN/' ? 'https://linkedin.com' : 'https://github.com') : item.path}
+            href={item.external ? (item.label === '/LINKEDIN/' ? 'https://www.linkedin.com/in/guillaume-alameda-92b533217/' : 'https://github.com/guillaume-boop') : item.path}
             target={item.external ? '_blank' : undefined}
             rel={item.external ? 'noopener noreferrer' : undefined}
             onClick={(e) => {

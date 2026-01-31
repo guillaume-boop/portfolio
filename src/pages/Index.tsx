@@ -106,42 +106,42 @@ const Index = () => {
       {/* Draggable Cards Container */}
       <div className="w-full h-screen">
         {/* STEP Card - Top center-left */}
-        <DraggableCard initialX={280} initialY={80} zIndex={0}>
+        <DraggableCard initialX={330} initialY={80} zIndex={0}>
           <div className="animate-card-pop" style={{ animationDelay: '0ms' }}>
             <StepCard onPageChange={setCurrentPage} />
           </div>
         </DraggableCard>
 
         {/* TICKET-EASY Card - Top right */}
-        <DraggableCard initialX={850} initialY={100} zIndex={1}>
+        <DraggableCard initialX={900} initialY={100} zIndex={1}>
           <div className="animate-card-pop" style={{ animationDelay: '80ms' }}>
             <TicketEasyCard onPageChange={setCurrentPage} />
           </div>
         </DraggableCard>
 
         {/* LINKEDIN Card - Left side */}
-        <DraggableCard initialX={120} initialY={280} zIndex={2}>
+        <DraggableCard initialX={170} initialY={350} zIndex={2}>
           <div className="animate-card-pop" style={{ animationDelay: '160ms' }}>
             <LinkedInCard />
           </div>
         </DraggableCard>
 
         {/* GitHub Card - Center */}
-        <DraggableCard initialX={540} initialY={320} zIndex={3}>
+        <DraggableCard initialX={620} initialY={320} zIndex={3}>
           <div className="animate-card-pop" style={{ animationDelay: '240ms' }}>
             <GitHubCard />
           </div>
         </DraggableCard>
 
         {/* PROFILE Card - Right side */}
-        <DraggableCard initialX={1000} initialY={280} zIndex={4}>
+        <DraggableCard initialX={1050} initialY={280} zIndex={4}>
           <div className="animate-card-pop" style={{ animationDelay: '320ms' }}>
             <ProfileCard onPageChange={setCurrentPage} />
           </div>
         </DraggableCard>
 
         {/* Contact Card - Bottom center */}
-        <DraggableCard initialX={420} initialY={520} zIndex={5}>
+        <DraggableCard initialX={420} initialY={600} zIndex={5}>
           <div className="animate-card-pop" style={{ animationDelay: '400ms' }}>
             <ContactCard />
           </div>

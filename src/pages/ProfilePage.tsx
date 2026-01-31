@@ -44,10 +44,10 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '80ms' }}>
             <div className="border-2 card-border bg-card">
               <div className="border-b-2 card-border px-4 py-3 flex flex-col">
-                <h2 className="card-header text-lg">
+                <h2 className="card-header text-lg" translate="no">
                   <FlipText text="/GUILLAUME" />
                 </h2>
-                <h2 className="card-header text-lg">
+                <h2 className="card-header text-lg" translate="no">
                   <FlipText text="ALAMEDA/" />
                 </h2>
               </div>
@@ -61,9 +61,9 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
 
           {/* Back-End Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '160ms' }}>
-            <div className="border-2 card-border bg-card">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 py-3">
-                <h3 className="card-header text-lg">
+                <h3 className="card-header text-lg" translate="no">
                   <FlipText text={`/${t('backend')}/`} />
                 </h3>
               </div>
@@ -77,9 +77,9 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
 
           {/* Front-End Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '240ms' }}>
-            <div className="border-2 card-border bg-card">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 py-3">
-                <h3 className="card-header text-lg">
+                <h3 className="card-header text-lg" translate="no">
                   <FlipText text={`/${t('frontend')}/`} />
                 </h3>
               </div>
@@ -93,9 +93,9 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
 
           {/* Blockchain Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '320ms' }}>
-            <div className="border-2 card-border bg-card">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 py-3">
-                <h3 className="card-header text-lg">
+                <h3 className="card-header text-lg" translate="no">
                   <FlipText text={`/${t('blockchain')}/`} />
                 </h3>
               </div>
@@ -109,9 +109,9 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
 
           {/* Location Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '400ms' }}>
-            <div className="border-2 card-border bg-card">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 py-3">
-                <h3 className="card-header text-lg">
+                <h3 className="card-header text-lg" translate="no">
                   <FlipText text={`/${t('location')}/`} />
                 </h3>
               </div>
@@ -125,9 +125,9 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
 
           {/* Contact Card */}
           <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '480ms' }}>
-            <div className="border-2 card-border bg-card">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 py-3">
-                <h3 className="card-header text-lg">
+                <h3 className="card-header text-lg" translate="no">
                   <FlipText text={`/${t('contactInfo')}/`} />
                 </h3>
               </div>
@@ -164,7 +164,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
       {/* Draggable Cards Container */}
       <div className="w-full h-screen">
         {/* Profile Avatar - Top Left */}
-        <DraggableCard initialX={200} initialY={100} zIndex={0} isRaw={true}>
+        <DraggableCard initialX={380} initialY={100} zIndex={0} isRaw={true}>
           <div className="animate-card-pop">
             <div className="w-64 h-64 bg-secondary rounded-full flex items-center justify-center border-2 card-border cursor-grab active:cursor-grabbing">
               <img src={profileImg} alt="Profile" className="w-full h-full rounded-full object-cover" />
@@ -173,11 +173,11 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
         </DraggableCard>
 
         {/* Name Card - Top Right */}
-        <DraggableCard initialX={500} initialY={200} zIndex={2}>
+        <DraggableCard initialX={700} initialY={220} zIndex={2}>
           <div className="animate-card-pop" style={{ animationDelay: '80ms' }}>
-            <div className="w-[280px] md:w-[400px] border-2 card-border bg-card">
+            <div className="w-[90%] sm:w-[320px] md:w-[400px] lg:w-[460px] xl:w-[520px] border-2 card-border bg-card">
               <div className="border-b-2 card-border px-4 py-3">
-                <h2 className="card-header text-lg md:text-xl">
+                <h2 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text="/GUILLAUME ALAMEDA/" />
                 </h2>
               </div>
@@ -191,11 +191,11 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
         </DraggableCard>
 
         {/* Back-End Card - Left Middle */}
-        <DraggableCard initialX={140} initialY={380} zIndex={1}>
+        <DraggableCard initialX={200} initialY={400} zIndex={1}>
           <div className="animate-card-pop" style={{ animationDelay: '160ms' }}>
-            <div className="w-[280px] md:w-[340px] border-2 card-border bg-card">
+            <div className="w-[280px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card">
               <div className="border-b-2 card-border px-4 py-3">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('backend')}/`} />
                 </h3>
               </div>
@@ -209,11 +209,11 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
         </DraggableCard>
 
         {/* Front-End Card - Center Middle */}
-        <DraggableCard initialX={600} initialY={380} zIndex={3}>
+        <DraggableCard initialX={600} initialY={420} zIndex={3}>
           <div className="animate-card-pop" style={{ animationDelay: '240ms' }}>
-            <div className="w-[280px] md:w-[340px] border-2 card-border bg-card">
+            <div className="w-[280px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card">
               <div className="border-b-2 card-border px-4 py-3">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('frontend')}/`} />
                 </h3>
               </div>
@@ -227,11 +227,11 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
         </DraggableCard>
 
         {/* Blockchain Card - Right Middle */}
-        <DraggableCard initialX={1100} initialY={380} zIndex={1}>
+        <DraggableCard initialX={1000} initialY={400} zIndex={3}>
           <div className="animate-card-pop" style={{ animationDelay: '320ms' }}>
-            <div className="w-[280px] md:w-[340px] border-2 card-border bg-card">
+            <div className="w-[280px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card">
               <div className="border-b-2 card-border px-4 py-3">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('blockchain')}/`} />
                 </h3>
               </div>
@@ -245,15 +245,15 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
         </DraggableCard>
 
         {/* Location Card - Bottom Left */}
-        <DraggableCard initialX={450} initialY={530} zIndex={4}>
+        <DraggableCard initialX={300} initialY={550} zIndex={4}>
           <div className="animate-card-pop" style={{ animationDelay: '400ms' }}>
-            <div className="w-[280px] md:w-[340px] border-2 card-border bg-card">
+            <div className="w-[280px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card">
               <div className="border-b-2 card-border px-4 py-3">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('location')}/`} />
                 </h3>
               </div>
-              <div className="p-6 text">
+              <div className="p-6">
                 <p className="font-body text-foreground leading-relaxed text-sm md:text-base">
                   {t('locationDesc')}
                 </p>
@@ -265,13 +265,13 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
         {/* Contact Card - Bottom Right */}
         <DraggableCard initialX={750} initialY={550} zIndex={5}>
           <div className="animate-card-pop" style={{ animationDelay: '480ms' }}>
-            <div className="w-[280px] md:w-[340px] border-2 card-border bg-card">
+            <div className="w-[280px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card">
               <div className="border-b-2 card-border px-4 py-3">
-                <h3 className="card-header text-lg md:text-xl">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
                   <FlipText text={`/${t('contactInfo')}/`} />
                 </h3>
               </div>
-              <div className="p-6 ">
+              <div className="p-6">
                 <a href="mailto:guillaume.alameda@gmail.com" className="font-body text-foreground hover:text-secondary transition-colors text-sm md:text-base break-all">
                   {t('email')}
                 </a>

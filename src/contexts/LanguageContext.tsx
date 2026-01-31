@@ -46,7 +46,7 @@ const translations: Translations = {
     en: "STEP is a personal project management application. It allows you to track your project progress, define key milestones, and visualize your progress intuitively."
   },
   ticketEasyDesc: {
-    fr: "Ticket-Easy est une solution professionnelle au service des magasin en proposant une solution hardware et software pour les magsin, afin de lutter contre le vol de produit",
+    fr: "Ticket-Easy est une solution professionnelle au service des magasins proposant une solution hardware et software pour lutter contre le vol de produits.",
     en: "Ticket-Easy is a professional solution serving stores by offering a hardware and software solution to combat product theft."
   },
   profileDesc: {

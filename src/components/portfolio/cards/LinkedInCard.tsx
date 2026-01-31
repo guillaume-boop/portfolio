@@ -7,7 +7,7 @@ interface LinkedInCardProps {
   linkedInUrl?: string;
 }
 
-const LinkedInCard = ({ className = '', linkedInUrl = 'https://linkedin.com' }: LinkedInCardProps) => {
+const LinkedInCard = ({ className = '', linkedInUrl = 'https://www.linkedin.com/in/guillaume-alameda-92b533217/' }: LinkedInCardProps) => {
   return (
     <div className={`w-[280px] md:w-[320px] border-2 card-border ${className}`}>
       {/* Header */}
