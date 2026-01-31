@@ -33,8 +33,8 @@ const translations: Translations = {
   openTheProject: { fr: 'OUVRIR LE PROJET', en: 'OPEN THE PROJECT' },
   blockchainAdvantages: { fr: 'BLOCKCHAIN', en: 'BLOCKCHAIN' },
   blockchainDesc: {
-    fr: "La blockchain offre une transparence totale, une sécurité décentralisée et une immuabilité des données. Elle révolutionne les transactions et la confiance numérique.",
-    en: "Blockchain offers complete transparency, decentralized security, and data immutability. It revolutionizes transactions and digital trust."
+    fr: "Toutes les transactions sont gérées de manière transparente et sécurisée grâce à la technologie blockchain à travers des smart contract sur Ethereum.",
+    en: "All transactions are managed transparently and securely using blockchain technology through smart contracts on Ethereum."
   },
   investmentAdvantages: { fr: 'AVANTAGES', en: 'ADVANTAGES' },
   investmentDesc: {
@@ -42,8 +42,8 @@ const translations: Translations = {
     en: "Investing in tech packages offers superior liquidity, higher potential returns, and greater accessibility compared to real estate."
   },
   stepDesc: {
-    fr: "STEP est une application de gestion de projets personnels. Elle permet de suivre l'avancement de vos projets, de définir des étapes clés et de visualiser votre progression de manière intuitive.",
-    en: "STEP is a personal project management application. It allows you to track your project progress, define key milestones, and visualize your progress intuitively."
+    fr: "STEP est une application d'investissement dans l'immobilier tokenisé, permettant aux utilisateurs d'investir facilement dans des biens immobiliers via la technologie blockchain.",
+    en: "STEP is an investment application in tokenized real estate, allowing users to easily invest in real estate through blockchain technology."
   },
   ticketEasyDesc: {
     fr: "Ticket-Easy est une solution professionnelle au service des magasins proposant une solution hardware et software pour lutter contre le vol de produits.",
