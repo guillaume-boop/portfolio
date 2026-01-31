@@ -12,7 +12,7 @@ const TicketEasyCard = ({ className = '', onPageChange }: TicketEasyCardProps) =
     <div className={`w-[280px] md:w-[320px] border-2 card-border ${className}`}>
       {/* Header */}
       <div className="relative border-b-2 card-border px-3 pt-2">
-        <h3 className="card-header text-xl md:text-2xl">
+        <h3 className="card-header text-xl md:text-2xl" translate="no">
           <FlipText text="/TICKET-EASY/" />
         </h3>
         <button
@@ -22,6 +22,7 @@ const TicketEasyCard = ({ className = '', onPageChange }: TicketEasyCardProps) =
           }}
           className="card-header-btn absolute top-0.5 right-0.5"
           aria-label="View Ticket-Easy project"
+          translate="no"
         >
           <Eye className="w-5 h-5" />
         </button>

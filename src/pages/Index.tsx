@@ -71,6 +71,7 @@ const Index = () => {
               }}
               className="w-full max-w-xs text-left animate-fade-in-up text-foreground font-bold italic tracking-wider uppercase px-4 py-3 transition-colors border-0 bg-transparent cursor-pointer"
               style={{ animationDelay: `${index * 100}ms`, backgroundColor: 'rgba(0, 0, 0, 0.2)', fontFamily: "'Ethnocentric', sans-serif" }}
+              translate="no"
             >
               <TypewriterText 
                 text={item.label}

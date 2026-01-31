@@ -12,7 +12,7 @@ const LinkedInCard = ({ className = '', linkedInUrl = 'https://www.linkedin.com/
     <div className={`w-[280px] md:w-[320px] border-2 card-border ${className}`}>
       {/* Header */}
       <div className="relative border-b-2 card-border px-3 pt-2">
-        <h3 className="card-header text-xl md:text-2xl">
+        <h3 className="card-header text-xl md:text-2xl" translate="no">
           <FlipText text="/LINKEDIN/" />
         </h3>
         <a
@@ -22,6 +22,7 @@ const LinkedInCard = ({ className = '', linkedInUrl = 'https://www.linkedin.com/
           onClick={(e) => e.stopPropagation()}
           className="card-header-btn absolute top-0.5 right-0.5"
           aria-label="Open LinkedIn profile"
+          translate="no"
         >
           <ExternalLink className="w-5 h-5" />
         </a>

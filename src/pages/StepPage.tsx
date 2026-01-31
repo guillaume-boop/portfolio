@@ -47,7 +47,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
                 </h2>
               </div>
               <div className="p-4">
-                <p className="font-body text-foreground leading-relaxed text-sm">
+                <p className="font-body text-foreground leading-relaxed text-sm" translate="no">
                   {t('stepDesc')}
                 </p>
               </div>
@@ -63,7 +63,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
                 </h3>
               </div>
               <div className="p-4">
-                <p className="font-body text-foreground leading-relaxed text-sm">
+                <p className="font-body text-foreground leading-relaxed text-sm" translate="no">
                   {t('blockchainDesc')}
                 </p>
               </div>
@@ -79,7 +79,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
                 </h3>
               </div>
               <div className="p-4">
-                <p className="font-body text-foreground leading-relaxed text-sm">
+                <p className="font-body text-foreground leading-relaxed text-sm" translate="no">
                   {t('investmentDesc')}
                 </p>
               </div>
@@ -150,7 +150,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
 
               {/* Card Content */}
               <div className="p-6">
-                <p className="font-body text-foreground leading-relaxed text-sm md:text-base">
+                <p className="font-body text-foreground leading-relaxed text-sm md:text-base" translate="no">
                   {t('stepDesc')}
                 </p>
               </div>
@@ -171,7 +171,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
 
               {/* Card Content */}
               <div className="p-6">
-                <p className="font-body text-foreground leading-relaxed text-sm md:text-base">
+                <p className="font-body text-foreground leading-relaxed text-sm md:text-base" translate="no">
                   {t('blockchainDesc')}
                 </p>
               </div>
@@ -194,6 +194,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
                   rel="noopener noreferrer"
                   className="card-header-btn absolute top-0.5 right-0.5"
                   aria-label="Open STEP project"
+                  translate="no"
                 >
                   <ExternalLink className="w-5 h-5" />
                 </a>

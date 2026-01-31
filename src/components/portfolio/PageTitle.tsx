@@ -102,6 +102,7 @@ const PageTitle = ({ title, showNav = true, onPageChange }: PageTitleProps) => {
             backgroundColor: 'rgba(0, 0, 0, 0.2)',
             color: '#ffffff'
           }}
+          translate="no"
         >
           <TypewriterText 
             text={`/${title}/`}
@@ -156,6 +157,7 @@ const PageTitle = ({ title, showNav = true, onPageChange }: PageTitleProps) => {
                   backgroundColor: hoveredItem === item.key ? '#B3B3B3' : 'rgb(20, 20, 20)',
                   color: hoveredItem === item.key ? '#000000' : '#ffffff'
                 }}
+                translate="no"
               >
                 {item.label}
               </button>

@@ -39,6 +39,7 @@ const ContactPage = () => {
               <a
                 href={`mailto:${t('email')}`}
                 className="font-body text-foreground text-lg md:text-xl hover:underline"
+                translate="no"
               >
                 {t('email')}
               </a>

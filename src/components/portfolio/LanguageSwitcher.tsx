@@ -14,6 +14,7 @@ const LanguageSwitcher = () => {
           backgroundColor: language === 'fr' ? '#B3B3B3' : 'rgba(0, 0, 0, 0.2)',
           color: language === 'fr' ? '#000000' : '#ffffff'
         }}
+        translate="no"
       >
         FR
       </button>
@@ -26,6 +27,7 @@ const LanguageSwitcher = () => {
           backgroundColor: language === 'en' ? '#B3B3B3' : 'rgba(0, 0, 0, 0.2)',
           color: language === 'en' ? '#000000' : '#ffffff'
         }}
+        translate="no"
       >
         ENG
       </button>

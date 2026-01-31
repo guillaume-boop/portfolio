@@ -32,7 +32,7 @@ const FlipText = ({ text, className = '' }: FlipTextProps) => {
   }, [text]);
 
   return (
-    <span className={className}>
+    <span className={className} translate="no">
       {displayedText.split('').map((char, index) => (
         <span
           key={index}

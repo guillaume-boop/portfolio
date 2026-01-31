@@ -52,7 +52,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
                 </h2>
               </div>
               <div className="p-4">
-                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>
+                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }} translate="no">
                   {t('profileTitle')}
                 </p>
               </div>
@@ -68,7 +68,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
                 </h3>
               </div>
               <div className="p-4">
-                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>
+                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }} translate="no">
                   {t('backendDesc')}
                 </p>
               </div>
@@ -84,7 +84,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
                 </h3>
               </div>
               <div className="p-4">
-                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>
+                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }} translate="no">
                   {t('frontendDesc')}
                 </p>
               </div>
@@ -100,7 +100,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
                 </h3>
               </div>
               <div className="p-4">
-                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }}>
+                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }} translate="no">
                   {t('blockchainSkills')}
                 </p>
               </div>

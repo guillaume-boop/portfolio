@@ -44,7 +44,7 @@ const TypewriterText = ({
   }, [text, speed, delay]);
 
   return (
-    <span className={className}>
+    <span className={className} translate="no">
       {displayedText}
       {showCursor && !isComplete && <span className="typewriter-cursor" />}
     </span>
