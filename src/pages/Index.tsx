@@ -2,17 +2,20 @@ import { useEffect, useState } from 'react';
 import PageTitle from '@/components/portfolio/PageTitle';
 import LanguageSwitcher from '@/components/portfolio/LanguageSwitcher';
 import DraggableCard from '@/components/portfolio/DraggableCard';
+import AnimatedGridBackground from '@/components/AnimatedGridBackground';
 import StepCard from '@/components/portfolio/cards/StepCard';
 import GitHubCard from '@/components/portfolio/cards/GitHubCard';
 import ContactCard from '@/components/portfolio/cards/ContactCard';
 import LinkedInCard from '@/components/portfolio/cards/LinkedInCard';
 import TicketEasyCard from '@/components/portfolio/cards/TicketEasyCard';
 import ProfileCard from '@/components/portfolio/cards/ProfileCard';
+import DesignCard from '@/components/portfolio/cards/DesignCard';
 import TypewriterText from '@/components/portfolio/TypewriterText';
 import { useLanguage } from '@/contexts/LanguageContext';
 import StepPage from './StepPage';
 import TicketEasyPage from './TicketEasyPage';
 import ProfilePage from './ProfilePage';
+import DesignPage from './DesignPage';
 
 const Index = () => {
   const { t } = useLanguage();
@@ -41,6 +44,9 @@ const Index = () => {
   if (currentPage === 'profile') {
     return <ProfilePage onPageChange={setCurrentPage} />;
   }
+  if (currentPage === 'design') {
+    return <DesignPage onPageChange={setCurrentPage} />;
+  }
 
   // Mobile view - simple list navigation
   if (isMobile) {
@@ -57,6 +63,7 @@ const Index = () => {
             { label: '/PROFILE/', key: 'profile', external: false },
             { label: '/TICKET-EASY/', key: 'ticketEasy', external: false },
             { label: '/STEP/', key: 'step', external: false },
+            { label: '/DESIGN/', key: 'design', external: false },
             { label: '/LINKEDIN/', key: 'linkedin', external: true, url: 'https://www.linkedin.com/in/guillaume-alameda-92b533217/' },
             { label: '/GITHUB/', key: 'github', external: true, url: 'https://github.com/guillaume-boop' },
           ].map((item, index) => (
@@ -94,6 +101,7 @@ const Index = () => {
   // Desktop view - draggable cards
   return (
     <div className="min-h-screen bg-background overflow-hidden relative">
+      <AnimatedGridBackground />
       {/* Header - Top Left */}
       <div className="fixed top-6 left-6 z-50">
         <PageTitle title={t('home')} onPageChange={setCurrentPage} />
@@ -130,14 +138,14 @@ const Index = () => {
         {/* GitHub Card - Center */}
         <DraggableCard initialX={620} initialY={320} zIndex={3}>
           <div className="animate-card-pop" style={{ animationDelay: '240ms' }}>
-            <GitHubCard />
+            <ProfileCard onPageChange={setCurrentPage} />
           </div>
         </DraggableCard>
 
-        {/* PROFILE Card - Right side */}
+        {/* GitHub Card - Right side */}
         <DraggableCard initialX={1050} initialY={280} zIndex={4}>
           <div className="animate-card-pop" style={{ animationDelay: '320ms' }}>
-            <ProfileCard onPageChange={setCurrentPage} />
+            <GitHubCard />
           </div>
         </DraggableCard>
 
@@ -145,6 +153,13 @@ const Index = () => {
         <DraggableCard initialX={420} initialY={600} zIndex={5}>
           <div className="animate-card-pop" style={{ animationDelay: '400ms' }}>
             <ContactCard />
+          </div>
+        </DraggableCard>
+
+        {/* DESIGN Card - Bottom right */}
+        <DraggableCard initialX={900} initialY={450} zIndex={7}>
+          <div className="animate-card-pop" style={{ animationDelay: '480ms' }}>
+            <DesignCard onPageChange={setCurrentPage} />
           </div>
         </DraggableCard>
       </div>

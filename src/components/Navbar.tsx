@@ -24,6 +24,7 @@ const Navbar = () => {
     { label: '/STEP/', path: '/step' },
     { label: '/TICKET-EASY/', path: '/ticket-easy' },
     { label: '/PROFILE/', path: '/profile' },
+    { label: '/DESIGN/', path: '/design' },
     { label: '/LINKEDIN/', path: '/linkedin', external: true },
     { label: '/GITHUB/', path: '/github', external: true },
   ];

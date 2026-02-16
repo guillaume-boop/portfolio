@@ -15,6 +15,7 @@ const navItems = [
   { key: 'profile', label: '/PROFILE/' },
   { key: 'ticketEasy', label: '/TICKET-EASY/' },
   { key: 'step', label: '/STEP/' },
+  { key: 'design', label: '/DESIGN/' },
   { key: 'linkedin', label: '/LINKEDIN/' },
   { key: 'github', label: '/GITHUB/' },
 ];

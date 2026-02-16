@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import StepPage from "./pages/StepPage";
 import TicketEasyPage from "./pages/TicketEasyPage";
 import ProfilePage from "./pages/ProfilePage";
+import DesignPage from "./pages/DesignPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/step" element={<StepPage />} />
             <Route path="/ticket-easy" element={<TicketEasyPage />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/design" element={<DesignPage />} />
             <Route path="/contact" element={<ContactPage />} />
             {/* LinkedIn and GitHub redirect externally */}
             <Route path="*" element={<NotFound />} />

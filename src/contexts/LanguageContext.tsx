@@ -64,6 +64,14 @@ const translations: Translations = {
   locationDesc: { fr: 'Paris, France', en: 'Paris, France' },
   contactInfo: { fr: 'CONTACT', en: 'CONTACT' },
   email: { fr: 'guillaume.alameda@gmail.com', en: 'guillaume.alameda@gmail.com' },
+  design: { fr: 'DESIGN', en: 'DESIGN' },
+  maquettes: { fr: 'MAQUETTES', en: 'MOCKUPS' },
+  modelling3d: { fr: 'MODÉLISATION 3D', en: '3D MODELLING' },
+  resume: { fr: 'RÉSUMÉ', en: 'SUMMARY' },
+  resumeDesc: {
+    fr: 'Au cours de mes projets, j\'ai travaillé sur l\'UX et l\'UI de sites web, en réalisant des maquettes pour concevoir des interfaces claires et cohérentes. Récemment, j\'ai commencé à m\'intéresser à la 3D afin d\'élargir mes compétences en conception visuelle.',
+    en: 'Throughout my projects, I have worked on UX and UI design for websites, creating mockups to design clear and coherent interfaces. Recently, I have started to take interest in 3D design to expand my visual design skills.'
+  },
 };
 
 interface LanguageContextType {
