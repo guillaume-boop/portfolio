@@ -60,7 +60,7 @@ const DesignPage = ({ onPageChange }: DesignPageProps) => {
                   <FlipText text={`/${t('design')}/`} />
                 </h3>
               </div>
-              <div className="bg-secondary flex items-center justify-center aspect-video overflow-hidden">
+              <div className="bg-secondary flex items-center justify-center aspect-video overflow-hidden\">
                 <video
                   width="100%"
                   height="100%"
@@ -68,7 +68,9 @@ const DesignPage = ({ onPageChange }: DesignPageProps) => {
                   loop
                   muted
                   controlsList="nofullscreen"
-                  style={{ objectFit: 'cover' }}
+                  disablePictureInPicture
+                  playsInline
+                  style={{ objectFit: 'cover', maxHeight: '100%' } as React.CSSProperties}
                 >
                   <source
                     src="https://res.cloudinary.com/djdtzd2wv/video/upload/Votre_texte_de_paragraphe_1_hzhemo.mp4"
