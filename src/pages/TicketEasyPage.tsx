@@ -31,7 +31,7 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
   if (isMobile) {
     return (
       <div className="min-h-screen bg-background p-6 flex flex-col overflow-x-hidden relative">
-        <AnimatedGridBackground />
+        <AnimatedGridBackground disableSpotlight={true} />
         {/* Header */}
         <div className="mb-12 relative z-10">
           <PageTitle title="TICKET-EASY" onPageChange={onPageChange} showNav={true} />

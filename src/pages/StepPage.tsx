@@ -27,7 +27,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
   if (isMobile) {
     return (
       <div className="min-h-screen bg-background p-6 flex flex-col overflow-x-hidden relative">
-        <AnimatedGridBackground />
+        <AnimatedGridBackground disableSpotlight={true} />
         {/* Header */}
         <div className="mb-8 relative z-10">
           <PageTitle title="STEP" onPageChange={onPageChange} showNav={true} />

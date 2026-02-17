@@ -5,7 +5,11 @@ interface MousePos {
   y: number;
 }
 
-const AnimatedGridBackground = () => {
+interface AnimatedGridBackgroundProps {
+  disableSpotlight?: boolean;
+}
+
+const AnimatedGridBackground = ({ disableSpotlight = false }: AnimatedGridBackgroundProps) => {
   const [mousePos, setMousePos] = useState<MousePos>({ x: 0, y: 0 });
   const [hue, setHue] = useState(0);
 
@@ -53,6 +57,7 @@ const AnimatedGridBackground = () => {
       />
       
       {/* Spotlight overlay - illuminates only the grid lines with color based on cursor position */}
+      {!disableSpotlight && (
       <div 
         className="fixed inset-0 pointer-events-none overflow-hidden"
         style={{
@@ -78,6 +83,7 @@ const AnimatedGridBackground = () => {
           WebkitMaskImage: `radial-gradient(circle 200px at ${mousePos.x}px ${mousePos.y}px, black 0%, transparent 100%)`
         } as React.CSSProperties}
       />
+      )}
     </>
   );
 };
