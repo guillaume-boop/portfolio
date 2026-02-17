@@ -67,6 +67,7 @@ const DesignPage = ({ onPageChange }: DesignPageProps) => {
                   autoPlay
                   loop
                   muted
+                  controlsList="nofullscreen"
                   style={{ objectFit: 'cover' }}
                 >
                   <source
