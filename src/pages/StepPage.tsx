@@ -26,21 +26,22 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
   // Mobile view - centered cards
   if (isMobile) {
     return (
-      <div className="min-h-screen bg-background p-6 flex flex-col overflow-x-hidden">
+      <div className="min-h-screen bg-background p-6 flex flex-col overflow-x-hidden relative">
+        <AnimatedGridBackground />
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-8 relative z-10">
           <PageTitle title="STEP" onPageChange={onPageChange} showNav={true} />
         </div>
 
         {/* Scrollable content */}
-        <div className="flex-1 overflow-y-auto flex flex-col items-center justify-start gap-8 py-8">
+        <div className="flex-1 overflow-y-auto flex flex-col items-center justify-start gap-8 py-8 relative z-10">
           {/* Logo */}
-          <div className="animate-card-pop">
+          <div>
             <img src={stepImg} alt="Step" className="w-48 h-auto object-contain rounded-full" />
           </div>
 
           {/* The Project Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '80ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg" translate="no">
@@ -56,7 +57,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
           </div>
 
           {/* Blockchain Advantages Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '160ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg" translate="no">
@@ -72,7 +73,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
           </div>
 
           {/* Investment Advantages Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '240ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg" translate="no">
@@ -88,9 +89,9 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
           </div>
 
           {/* Open Project Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '320ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
-              <div className="border-b-2 card-border px-4 pt-2 flex items-center justify-between gap-2">
+              <div className="border-b-2 card-border pl-4 pr-1 pt-2 flex items-center justify-between gap-2">
                 <h3 className="card-header text-lg flex-1 pr-2" translate="no">
                   <FlipText text={`/${t('open')}/`} />
                 </h3>
@@ -98,7 +99,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
                   href="https://step-front.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card-header-btn flex-shrink-0"
+                  className="card-header-btn flex-shrink-0 -mt-2"
                   aria-label="Open STEP project"
                 >
                   <ExternalLink className="w-5 h-5" />
@@ -109,7 +110,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
         </div>
 
         {/* Footer */}
-        <div className="mt-8">
+        <div className="mt-8 relative z-10">
           <LanguageSwitcher />
         </div>
       </div>

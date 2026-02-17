@@ -27,19 +27,102 @@ const DesignPage = ({ onPageChange }: DesignPageProps) => {
   // Mobile view - centered cards
   if (isMobile) {
     return (
-      <div className="min-h-screen bg-background p-6 flex flex-col overflow-x-hidden">
+      <div className="min-h-screen bg-background p-6 flex flex-col overflow-x-hidden relative">
+        <AnimatedGridBackground />
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-8 relative z-10">
           <PageTitle title={t('design')} onPageChange={onPageChange} showNav={true} />
         </div>
 
         {/* Scrollable content */}
-        <div className="flex-1 overflow-y-auto flex flex-col items-center justify-start gap-8 py-8">
-          <p className="text-foreground opacity-70 text-center" translate="no">À venir...</p>
+        <div className="flex-1 overflow-y-auto flex flex-col items-center justify-start gap-8 py-8 relative z-10">
+          {/* Resume Card */}
+          <div className="w-full max-w-xs">
+            <div className="w-[90%] sm:w-[320px] border-2 card-border bg-card mx-auto">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-lg" translate="no">
+                  <FlipText text={`/${t('resume')}/`} />
+                </h3>
+              </div>
+              <div className="p-4">
+                <p className="text-foreground leading-relaxed text-sm" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }} translate="no">
+                  {t('resumeDesc')}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Video Card */}
+          <div className="w-full max-w-xs">
+            <div className="w-[90%] sm:w-[320px] border-2 card-border bg-card mx-auto">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-lg" translate="no">
+                  <FlipText text={`/${t('design')}/`} />
+                </h3>
+              </div>
+              <div className="bg-secondary flex items-center justify-center aspect-video overflow-hidden">
+                <video
+                  width="100%"
+                  height="100%"
+                  autoPlay
+                  loop
+                  muted
+                  style={{ objectFit: 'cover' }}
+                >
+                  <source
+                    src="https://res.cloudinary.com/djdtzd2wv/video/upload/Votre_texte_de_paragraphe_1_hzhemo.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
+            </div>
+          </div>
+
+          {/* Interface Card */}
+          <div className="w-full max-w-xs">
+            <div className="w-[90%] sm:w-[320px] border-2 card-border bg-card mx-auto overflow-hidden">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-lg" translate="no">
+                  <FlipText text="/INTERFACE/" />
+                </h3>
+              </div>
+              <div className="bg-secondary flex items-center justify-center aspect-[1.70/3]">
+                <img src={interfaceImg} alt="Interface" className="w-full h-full object-contain" />
+              </div>
+            </div>
+          </div>
+
+          {/* Maquettes Card */}
+          <div className="w-full max-w-xs">
+            <div className="w-[90%] sm:w-[320px] border-2 card-border bg-card mx-auto overflow-hidden">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-lg" translate="no">
+                  <FlipText text={`/${t('maquettes')}/`} />
+                </h3>
+              </div>
+              <div className="bg-secondary flex items-center justify-center aspect-[16/9]">
+                <img src={maquetteImg} alt="Maquettes" className="w-full h-full object-contain" />
+              </div>
+            </div>
+          </div>
+
+          {/* 3D Modelling Card */}
+          <div className="w-full max-w-xs">
+            <div className="w-[90%] sm:w-[320px] border-2 card-border bg-card mx-auto overflow-hidden">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-lg" translate="no">
+                  <FlipText text={`/${t('modelling3d')}/`} />
+                </h3>
+              </div>
+              <div className="bg-secondary flex items-center justify-center aspect-[16/9]">
+                <img src={img3dImg} alt="Modélisation 3D" className="w-full h-full object-contain" />
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Footer */}
-        <div className="mt-8">
+        <div className="mt-8 relative z-10">
           <LanguageSwitcher />
         </div>
       </div>

@@ -51,14 +51,15 @@ const Index = () => {
   // Mobile view - simple list navigation
   if (isMobile) {
     return (
-      <div className="min-h-screen bg-background p-6 flex flex-col overflow-x-hidden">
+      <div className="min-h-screen bg-background p-6 flex flex-col overflow-x-hidden relative">
+        <AnimatedGridBackground />
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-12 relative z-10">
           <PageTitle title={t('home')} showNav={false} />
         </div>
 
         {/* Navigation Cards */}
-        <nav className="flex-1 flex flex-col items-center justify-center gap-6 mx-12">
+        <nav className="flex-1 flex flex-col items-center justify-center gap-6 mx-12 relative z-10">
           {[
             { label: '/PROFILE/', key: 'profile', external: false },
             { label: '/TICKET-EASY/', key: 'ticketEasy', external: false },
@@ -91,7 +92,7 @@ const Index = () => {
         </nav>
 
         {/* Footer */}
-        <div className="mt-8">
+        <div className="mt-8 relative z-10">
           <LanguageSwitcher />
         </div>
       </div>

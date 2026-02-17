@@ -26,24 +26,25 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
   // Mobile view - centered cards
   if (isMobile) {
     return (
-      <div className="min-h-screen bg-background p-6 flex flex-col overflow-x-hidden">
+      <div className="min-h-screen bg-background p-6 flex flex-col overflow-x-hidden relative">
+        <AnimatedGridBackground />
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-8 relative z-10">
           <PageTitle title={t('profile')} onPageChange={onPageChange} showNav={true} />
         </div>
 
         {/* Scrollable content */}
-        <div className="flex-1 overflow-y-auto flex flex-col items-center justify-start gap-8 py-8">
+        <div className="flex-1 overflow-y-auto flex flex-col items-center justify-start gap-8 py-8 relative z-10">
           {/* Profile Avatar */}
-          <div className="animate-card-pop">
+          <div>
             <div className="w-48 h-48 bg-secondary rounded-full flex items-center justify-center border-2 card-border">
               <img src={profileImg} alt="Profile" className="w-full h-full rounded-full object-cover" />
             </div>
           </div>
 
           {/* Name Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '80ms' }}>
-            <div className="border-2 card-border bg-card">
+          <div className="w-full max-w-xs">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 pt-2 flex flex-col">
                 <h3 className="card-header text-lg" translate="no">
                   <FlipText text="/GUILLAUME" />
@@ -61,7 +62,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
           </div>
 
           {/* Back-End Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '160ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg" translate="no">
@@ -77,7 +78,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
           </div>
 
           {/* Front-End Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '240ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg" translate="no">
@@ -93,7 +94,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
           </div>
 
           {/* Blockchain Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '320ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg" translate="no">
@@ -109,7 +110,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
           </div>
 
           {/* Location Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '400ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg" translate="no">
@@ -125,7 +126,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
           </div>
 
           {/* Contact Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '480ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg" translate="no">
@@ -142,7 +143,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
         </div>
 
         {/* Footer */}
-        <div className="mt-8">
+        <div className="mt-8 relative z-10">
           <LanguageSwitcher />
         </div>
       </div>

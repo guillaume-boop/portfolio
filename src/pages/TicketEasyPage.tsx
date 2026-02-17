@@ -30,17 +30,18 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
   // Mobile view - centered cards
   if (isMobile) {
     return (
-      <div className="min-h-screen bg-background p-6 flex flex-col overflow-x-hidden">
+      <div className="min-h-screen bg-background p-6 flex flex-col overflow-x-hidden relative">
+        <AnimatedGridBackground />
         {/* Header */}
-        <div className="mb-12">
+        <div className="mb-12 relative z-10">
           <PageTitle title="TICKET-EASY" onPageChange={onPageChange} showNav={true} />
         </div>
 
         {/* Scrollable content */}
-        <div className="flex-1 overflow-y-auto flex flex-col items-center justify-start gap-8 py-8">
+        <div className="flex-1 overflow-y-auto flex flex-col items-center justify-start gap-8 py-8 relative z-10">
           {/* Logo */}
                   {/* Logo Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '10ms' }}>
+          <div className="w-full max-w-xs">
             <div className={`w-[90%] sm:w-[320px] md:w-[320px] lg:w-[360px] xl:w-[400px] border-2 card-border mx-auto`}>
               {/* Header */}
               <div className="relative border-b-2 card-border px-3 pt-2 bg-card">
@@ -61,7 +62,7 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
           </div>
 
           {/* Description Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '80ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg md:text-xl" translate="no">
@@ -77,7 +78,7 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
           </div>
 
           {/* Kiosk 3D Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '480ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card overflow-hidden mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg" translate="no">
@@ -91,7 +92,7 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
           </div>
 
           {/* Realization Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '240ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg" translate="no">
@@ -107,7 +108,7 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
           </div>
 
           {/* Interface Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '400ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card overflow-hidden mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg" translate="no">
@@ -121,7 +122,7 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
           </div>
 
           {/* Dashboard Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '320ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card overflow-hidden mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg" translate="no">
@@ -135,17 +136,18 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
           </div>
 
           {/* View Project Card */}
-          <div className="animate-card-pop w-full max-w-xs" style={{ animationDelay: '160ms' }}>
+          <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
-              <div className="border-b-2 card-border px-4 pt-2 flex items-center justify-between gap-2">
+              <div className="border-b-2 card-border pl-4 pr-1 pt-2 flex items-center justify-between gap-2">
                 <h3 className="card-header text-lg flex-1 pr-2" translate="no">
+
                   <FlipText text={`/${t('view')}/`} />
                 </h3>
                 <a
                   href="https://ticketeasy.tech/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card-header-btn flex-shrink-0"
+                  className="card-header-btn flex-shrink-0 -mt-2"
                   aria-label="Open TicketEasy project"
                 >
                   <ExternalLink className="w-5 h-5" />
@@ -157,7 +159,7 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
         </div>
 
         {/* Footer */}
-        <div className="mt-8">
+        <div className="mt-8 relative z-10">
           <LanguageSwitcher />
         </div>
       </div>
