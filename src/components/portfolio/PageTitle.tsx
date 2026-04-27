@@ -3,6 +3,7 @@ import * as React from 'react';
 import { createPortal } from 'react-dom';
 import TypewriterText from './TypewriterText';
 import { useLanguage } from '@/contexts/LanguageContext';
+import burgerButtonSvg from '@/assets/icons/burger-button.svg';
 
 interface PageTitleProps {
   title: string;
@@ -121,7 +122,7 @@ const PageTitle = ({ title, showNav = true, onPageChange }: PageTitleProps) => {
             className="flex items-center justify-center transition-transform duration-300"
             style={{ transform: isNavOpen ? 'rotate(90deg)' : 'rotate(0deg)' }}
           >
-            <img src="/burger-button.svg" alt="Menu" className="h-8 w-8 md:h-10 md:w-10" />
+            <img src={burgerButtonSvg} alt="Menu" className="h-8 w-8 md:h-10 md:w-10" />
           </button>
         )}
       </div>
