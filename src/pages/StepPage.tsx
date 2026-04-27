@@ -6,7 +6,10 @@ import FlipText from '@/components/portfolio/FlipText';
 import DraggableCard from '@/components/portfolio/DraggableCard';
 import AnimatedGridBackground from '@/components/AnimatedGridBackground';
 import { useLanguage } from '@/contexts/LanguageContext';
-import stepImg from '@/assets/step-logo.png';
+import stepImg from '@/assets/step/step-logo.png';
+import assetDetailImg from '@/assets/step/asset_detail.png';
+import homepageImg from '@/assets/step/homepage.png';
+import profileImg from '@/assets/step/profile.png';
 
 interface StepPageProps {
   onPageChange?: (page: string | null) => void;
@@ -48,8 +51,8 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
                   <FlipText text={`/${t('theProject')}/`} />
                 </h3>
               </div>
-              <div className="p-4">
-                <p className="font-body text-foreground leading-relaxed text-sm" translate="no">
+              <div className="p-2 sm:p-4">
+                <p className="text-foreground leading-relaxed text-sm" style={{ fontFamily: "'Geist Mono', sans-serif", fontWeight: 400 }} translate="no">
                   {t('stepDesc')}
                 </p>
               </div>
@@ -64,8 +67,8 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
                   <FlipText text={`/${t('blockchainAdvantages')}/`} />
                 </h3>
               </div>
-              <div className="p-4">
-                <p className="font-body text-foreground leading-relaxed text-sm" translate="no">
+              <div className="p-2 sm:p-4">
+                <p className="text-foreground leading-relaxed text-sm" style={{ fontFamily: "'Geist Mono', sans-serif", fontWeight: 400 }} translate="no">
                   {t('blockchainDesc')}
                 </p>
               </div>
@@ -80,10 +83,52 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
                   <FlipText text={`/${t('investmentAdvantages')}/`} />
                 </h3>
               </div>
-              <div className="p-4">
-                <p className="font-body text-foreground leading-relaxed text-sm" translate="no">
+              <div className="p-2 sm:p-4">
+                <p className="text-foreground leading-relaxed text-sm" style={{ fontFamily: "'Geist Mono', sans-serif", fontWeight: 400 }} translate="no">
                   {t('investmentDesc')}
                 </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Asset Detail Card */}
+          <div className="w-full max-w-xs">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto overflow-hidden">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-lg" translate="no">
+                  <FlipText text="/ASSET DETAIL/" />
+                </h3>
+              </div>
+              <div className="bg-secondary flex items-center justify-center aspect-[16/9]">
+                <img src={assetDetailImg} alt="Asset Detail" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+
+          {/* Homepage Card */}
+          <div className="w-full max-w-xs">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto overflow-hidden">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-lg" translate="no">
+                  <FlipText text="/HOMEPAGE/" />
+                </h3>
+              </div>
+              <div className="bg-secondary flex items-center justify-center aspect-[16/9]">
+                <img src={homepageImg} alt="Homepage" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+
+          {/* Profile Card */}
+          <div className="w-full max-w-xs">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto overflow-hidden">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-lg" translate="no">
+                  <FlipText text="/PROFILE/" />
+                </h3>
+              </div>
+              <div className="bg-secondary flex items-center justify-center aspect-[16/9]">
+                <img src={profileImg} alt="Profile" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -140,6 +185,54 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
           </div>
         </DraggableCard>
 
+        {/* Asset Detail Card - Right of Logo */}
+        <DraggableCard initialX={750} initialY={80} zIndex={1}>
+          <div className="animate-card-pop" style={{ animationDelay: '80ms' }}>
+            <div className="w-[280px] md:w-[340px] border-2 card-border bg-card overflow-hidden">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-xl md:text-2xl" translate="no">
+                  <FlipText text="/ASSET DETAIL/" />
+                </h3>
+              </div>
+              <div className="bg-secondary flex items-center justify-center aspect-[16/9]">
+                <img src={assetDetailImg} alt="Asset Detail" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </DraggableCard>
+
+        {/* Homepage Card - Right of Asset Detail */}
+        <DraggableCard initialX={1000} initialY={300} zIndex={1}>
+          <div className="animate-card-pop" style={{ animationDelay: '160ms' }}>
+            <div className="w-[280px] md:w-[340px] border-2 card-border bg-card overflow-hidden">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-xl md:text-2xl" translate="no">
+                  <FlipText text="/HOMEPAGE/" />
+                </h3>
+              </div>
+              <div className="bg-secondary flex items-center justify-center aspect-[16/9]">
+                <img src={homepageImg} alt="Homepage" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </DraggableCard>
+
+        {/* Profile Card - Below Asset Detail */}
+        <DraggableCard initialX={680} initialY={480} zIndex={1}>
+          <div className="animate-card-pop" style={{ animationDelay: '240ms' }}>
+            <div className="w-[280px] md:w-[340px] border-2 card-border bg-card overflow-hidden">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-xl md:text-2xl" translate="no">
+                  <FlipText text="/PROFILE/" />
+                </h3>
+              </div>
+              <div className="bg-secondary flex items-center justify-center aspect-[16/9]">
+                <img src={profileImg} alt="Profile" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </DraggableCard>
+
         {/* Description Card - The Project - Right of Logo */}
         <DraggableCard initialX={550} initialY={260} zIndex={2}>
           <div className="animate-card-pop" style={{ animationDelay: '80ms' }}>
@@ -152,7 +245,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
               </div>
 
               {/* Card Content */}
-              <div className="p-6">
+              <div className="md:p-4">
                 <p className="font-body text-foreground leading-relaxed text-sm md:text-base" translate="no">
                   {t('stepDesc')}
                 </p>
@@ -173,7 +266,7 @@ const StepPage = ({ onPageChange }: StepPageProps) => {
               </div>
 
               {/* Card Content */}
-              <div className="p-6">
+              <div className="md:p-4">
                 <p className="font-body text-foreground leading-relaxed text-sm md:text-base" translate="no">
                   {t('blockchainDesc')}
                 </p>

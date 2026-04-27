@@ -5,7 +5,7 @@ import FlipText from '@/components/portfolio/FlipText';
 import DraggableCard from '@/components/portfolio/DraggableCard';
 import AnimatedGridBackground from '@/components/AnimatedGridBackground';
 import { useLanguage } from '@/contexts/LanguageContext';
-import profileImg from '@/assets/profile.jpeg';
+import profileImg from '@/assets/profile/profile.jpeg';
 
 
 interface ProfilePageProps {
@@ -53,8 +53,8 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
                   <FlipText text="ALAMEDA/" />
                 </h3>
               </div>
-              <div className="p-4">
-                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }} translate="no">
+              <div className="p-2 sm:p-4">
+                <p className="font-body text-foreground leading-relaxed text-sm" translate="no">
                   {t('profileTitle')}
                 </p>
               </div>
@@ -69,8 +69,8 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
                   <FlipText text={`/${t('backend')}/`} />
                 </h3>
               </div>
-              <div className="p-4">
-                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }} translate="no">
+              <div className="p-2 sm:p-4">
+                <p className="font-body text-foreground leading-relaxed text-sm" translate="no">
                   {t('backendDesc')}
                 </p>
               </div>
@@ -85,8 +85,8 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
                   <FlipText text={`/${t('frontend')}/`} />
                 </h3>
               </div>
-              <div className="p-4">
-                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }} translate="no">
+              <div className="p-2 sm:p-4">
+                <p className="font-body text-foreground leading-relaxed text-sm" translate="no">
                   {t('frontendDesc')}
                 </p>
               </div>
@@ -101,8 +101,8 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
                   <FlipText text={`/${t('blockchain')}/`} />
                 </h3>
               </div>
-              <div className="p-4">
-                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }} translate="no">
+              <div className="p-2 sm:p-4">
+                <p className="font-body text-foreground leading-relaxed text-sm" translate="no">
                   {t('blockchainSkills')}
                 </p>
               </div>
@@ -202,7 +202,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
                   <FlipText text={`/${t('backend')}/`} />
                 </h3>
               </div>
-              <div className="p-6">
+              <div className="p-2 sm:p-4">
                 <p className="font-body text-foreground leading-relaxed text-sm md:text-base">
                   {t('backendDesc')}
                 </p>
@@ -220,7 +220,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
                   <FlipText text={`/${t('frontend')}/`} />
                 </h3>
               </div>
-              <div className="p-6">
+              <div className="p-2 sm:p-4">
                 <p className="font-body text-foreground leading-relaxed text-sm md:text-base">
                   {t('frontendDesc')}
                 </p>
@@ -238,7 +238,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
                   <FlipText text={`/${t('blockchain')}/`} />
                 </h3>
               </div>
-              <div className="p-6">
+              <div className="p-2 sm:p-4">
                 <p className="font-body text-foreground leading-relaxed text-sm md:text-base">
                   {t('blockchainSkills')}
                 </p>
@@ -256,7 +256,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
                   <FlipText text={`/${t('location')}/`} />
                 </h3>
               </div>
-              <div className="p-6">
+              <div className="p-2 sm:p-4">
                 <p className="font-body text-foreground leading-relaxed text-sm md:text-base">
                   {t('locationDesc')}
                 </p>

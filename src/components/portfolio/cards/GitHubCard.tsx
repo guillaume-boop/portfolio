@@ -1,6 +1,6 @@
 import { ExternalLink } from 'lucide-react';
 import FlipText from '../FlipText';
-import githubLogo from '@/assets/github-logo.svg';
+import githubLogo from '@/assets/social/github-logo.svg';
 
 interface GitHubCardProps {
   className?: string;

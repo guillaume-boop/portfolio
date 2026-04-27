@@ -38,7 +38,7 @@ const ContactPage = () => {
               <Mail className="w-6 h-6 text-foreground" />
               <a
                 href={`mailto:${t('email')}`}
-                className="font-body text-foreground text-lg md:text-xl hover:underline"
+                className="text-foreground text-lg md:text-xl hover:underline" style={{ fontFamily: "'Geist Mono', sans-serif", fontWeight: 400 }}
                 translate="no"
               >
                 {t('email')}

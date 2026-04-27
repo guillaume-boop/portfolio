@@ -1,6 +1,6 @@
 import { Eye } from 'lucide-react';
 import FlipText from '../FlipText';
-import ticketEasyImg from '@/assets/ticket_easy.png';
+import ticketEasyImg from '@/assets/ticket-easy/ticket_easy.png';
 
 interface TicketEasyCardProps {
   className?: string;

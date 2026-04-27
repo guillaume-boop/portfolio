@@ -1,6 +1,6 @@
 import { ExternalLink } from 'lucide-react';
 import FlipText from '../FlipText';
-import linkedinImg from '@/assets/linkedin.jpeg';
+import linkedinImg from '@/assets/social/linkedin.jpeg';
 
 interface LinkedInCardProps {
   className?: string;

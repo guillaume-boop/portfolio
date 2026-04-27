@@ -1,6 +1,6 @@
 import { Eye } from 'lucide-react';
 import FlipText from '../FlipText';
-import stepImg from '@/assets/step-logo.png';
+import stepImg from '@/assets/step/step-logo.png';
 
 interface StepCardProps {
   className?: string;

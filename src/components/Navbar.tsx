@@ -25,6 +25,7 @@ const Navbar = () => {
     { label: '/TICKET-EASY/', path: '/ticket-easy' },
     { label: '/PROFILE/', path: '/profile' },
     { label: '/DESIGN/', path: '/design' },
+    { label: '/GUIDE MICHELIN/', path: '/michelin' },
     { label: '/LINKEDIN/', path: '/linkedin', external: true },
     { label: '/GITHUB/', path: '/github', external: true },
   ];
@@ -33,7 +34,7 @@ const Navbar = () => {
   const currentPath = location.pathname;
 
   return (
-    <nav 
+    <nav
       className="fixed top-0 left-0 right-0 z-40 border-b-2 flex flex-col"
       style={{ borderColor: '#929292' }}
     >
@@ -54,7 +55,7 @@ const Navbar = () => {
             onMouseEnter={() => setHoveredItem(item.label)}
             onMouseLeave={() => setHoveredItem(null)}
             className="px-6 pt-2 font-bold tracking-wider uppercase border-b-2 transition-colors"
-            style={{ 
+            style={{
               fontFamily: "'Ethnocentric', sans-serif",
               borderColor: '#929292',
               backgroundColor: hoveredItem === item.label ? '#B3B3B3' : 'rgb(20, 20, 20)',

@@ -22,7 +22,7 @@ const ContactCard = ({ className = '' }: ContactCardProps) => {
         <a 
           href={`mailto:${t('email')}`}
           onClick={(e) => e.stopPropagation()}
-          className="font-body text-foreground hover:underline text-sm md:text-base"
+          className="text-foreground hover:underline text-sm md:text-base" style={{ fontFamily: "'Geist Mono', sans-serif", fontWeight: 400 }}
           translate="no"
         >
           {t('email')}

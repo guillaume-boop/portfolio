@@ -5,9 +5,10 @@ import FlipText from '@/components/portfolio/FlipText';
 import DraggableCard from '@/components/portfolio/DraggableCard';
 import AnimatedGridBackground from '@/components/AnimatedGridBackground';
 import { useLanguage } from '@/contexts/LanguageContext';
-import interfaceImg from '@/assets/home_kiosk.png';
-import maquetteImg from '@/assets/maquettes.png';
-import img3dImg from '@/assets/3d.png';
+import interfaceImg from '@/assets/kiosk/home_kiosk.png';
+import webappImg from '@/assets/kiosk/webapp.png';
+import maquetteImg from '@/assets/design/maquettes.png';
+import img3dImg from '@/assets/design/3d.png';
 
 interface DesignPageProps {
   onPageChange?: (page: string | null) => void;
@@ -44,23 +45,23 @@ const DesignPage = ({ onPageChange }: DesignPageProps) => {
                   <FlipText text={`/${t('resume')}/`} />
                 </h3>
               </div>
-              <div className="p-4">
-                <p className="text-foreground leading-relaxed text-sm" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }} translate="no">
+              <div className="p-2 sm:p-4">
+                <p className="text-foreground leading-relaxed text-sm" style={{ fontFamily: "'Geist Mono', sans-serif", fontWeight: 400 }} translate="no">
                   {t('resumeDesc')}
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Video Card */}
+          {/* Canvas Card */}
           <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] border-2 card-border bg-card mx-auto">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg" translate="no">
-                  <FlipText text={`/${t('design')}/`} />
+                  <FlipText text={`/${t('presentations')}/`} />
                 </h3>
               </div>
-              <div className="bg-secondary flex items-center justify-center aspect-video overflow-hidden\">
+              <div className="bg-secondary flex items-center justify-center aspect-video overflow-hidden">
                 <video
                   width="100%"
                   height="100%"
@@ -81,16 +82,16 @@ const DesignPage = ({ onPageChange }: DesignPageProps) => {
             </div>
           </div>
 
-          {/* Interface Card */}
+          {/* Webapp Card */}
           <div className="w-full max-w-xs">
             <div className="w-[90%] sm:w-[320px] border-2 card-border bg-card mx-auto overflow-hidden">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-lg" translate="no">
-                  <FlipText text="/INTERFACE/" />
+                  <FlipText text={`/${t('website')}/`} />
                 </h3>
               </div>
-              <div className="bg-secondary flex items-center justify-center aspect-[1.70/3]">
-                <img src={interfaceImg} alt="Interface" className="w-full h-full object-contain" />
+              <div className="bg-secondary flex items-center justify-center">
+                <img src={webappImg} alt="Webapp" className="w-full h-full object-contain" />
               </div>
             </div>
           </div>
@@ -148,13 +149,13 @@ const DesignPage = ({ onPageChange }: DesignPageProps) => {
 
       {/* Draggable Cards Container */}
       <div className="w-full h-screen">
-        {/* Video Card - Center */}
+        {/* Canvas Card - Center */}
         <DraggableCard initialX={800} initialY={100} zIndex={0}>
           <div className="animate-card-pop">
             <div className="w-[280px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-xl md:text-2xl" translate="no">
-                  <FlipText text={`/${t('design')}/`} />
+                  <FlipText text={`/${t('presentations')}/`} />
                 </h3>
               </div>
               <div className="flex items-center justify-center aspect-video bg-secondary overflow-hidden">
@@ -176,24 +177,24 @@ const DesignPage = ({ onPageChange }: DesignPageProps) => {
           </div>
         </DraggableCard>
 
-        {/* Interface Card - Right */}
-        <DraggableCard initialX={120} initialY={100} zIndex={1}>
+        {/* Webapp Card - Right */}
+        <DraggableCard initialX={300} initialY={100} zIndex={1}>
           <div className="animate-card-pop" style={{ animationDelay: '80ms' }}>
             <div className="w-[280px] md:w-[280px] border-2 card-border bg-card overflow-hidden">
               <div className="border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-xl md:text-2xl" translate="no">
-                  <FlipText text="/INTERFACE/" />
+                  <FlipText text={`/${t('website')}/`} />
                 </h3>
               </div>
-              <div className="bg-secondary flex items-center justify-center aspect-[1.70/3]">
-                <img src={interfaceImg} alt="Interface" className="w-full h-full object-contain" />
+              <div className="bg-secondary flex items-center justify-center">
+                <img src={webappImg} alt="Webapp" className="w-full h-full object-contain" />
               </div>
             </div>
           </div>
         </DraggableCard>
 
         {/* Maquettes Card - Bottom Left */}
-        <DraggableCard initialX={300} initialY={520} zIndex={5}>
+        <DraggableCard initialX={400} initialY={520} zIndex={5}>
           <div className="animate-card-pop" style={{ animationDelay: '160ms' }}>
             <div className="w-[280px] md:w-[340px] border-2 card-border bg-card overflow-hidden">
               <div className="border-b-2 card-border px-4 pt-2">
@@ -209,7 +210,7 @@ const DesignPage = ({ onPageChange }: DesignPageProps) => {
         </DraggableCard>
 
         {/* 3D Modelling Card - Bottom Right */}
-        <DraggableCard initialX={800} initialY={500} zIndex={5}>
+        <DraggableCard initialX={800} initialY={400} zIndex={5}>
           <div className="animate-card-pop" style={{ animationDelay: '240ms' }}>
             <div className="w-[280px] md:w-[400px] border-2 card-border bg-card overflow-hidden">
               <div className="border-b-2 card-border px-4 pt-2">
@@ -225,7 +226,7 @@ const DesignPage = ({ onPageChange }: DesignPageProps) => {
         </DraggableCard>
 
         {/* Resume Card - Top Right */}
-        <DraggableCard initialX={400} initialY={300} zIndex={4}>
+        <DraggableCard initialX={500} initialY={300} zIndex={4}>
           <div className="animate-card-pop" style={{ animationDelay: '320ms' }}>
             <div className="w-[280px] md:w-[400px] border-2 card-border bg-card overflow-hidden">
               <div className="border-b-2 card-border px-4 pt-2">
@@ -233,8 +234,8 @@ const DesignPage = ({ onPageChange }: DesignPageProps) => {
                   <FlipText text={`/${t('resume')}/`} />
                 </h3>
               </div>
-              <div className="p-4">
-                <p className="text-foreground leading-relaxed text-base" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }} translate="no">
+              <div className="p-2 sm:p-4">
+                <p className="text-foreground leading-relaxed text-base" style={{ fontFamily: "'Geist Mono', sans-serif", fontWeight: 400 }} translate="no">
                   {t('resumeDesc')}
                 </p>
               </div>

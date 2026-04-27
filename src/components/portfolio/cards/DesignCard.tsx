@@ -1,6 +1,6 @@
 import { Eye } from 'lucide-react';
 import FlipText from '../FlipText';
-import paintImg from '@/assets/paint.png';
+import paintImg from '@/assets/design/paint.png';
 
 interface DesignCardProps {
   className?: string;

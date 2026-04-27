@@ -7,10 +7,11 @@ import TypewriterText from '@/components/portfolio/TypewriterText';
 import DraggableCard from '@/components/portfolio/DraggableCard';
 import AnimatedGridBackground from '@/components/AnimatedGridBackground';
 import { useLanguage } from '@/contexts/LanguageContext';
-import ticketEasyImg from '@/assets/ticket_easy.png';
-import dashboardImg from '@/assets/dashboard.png';
-import interfaceImg from '@/assets/home_kiosk.png';
-import kiosk3dImg from '@/assets/kiosk_3d.png';
+import ticketEasyImg from '@/assets/ticket-easy/ticket_easy.png';
+import dashboardImg from '@/assets/kiosk/dashboard.png';
+import interfaceImg from '@/assets/kiosk/home_kiosk.png';
+import webappImg from '@/assets/kiosk/webapp.png';
+import kiosk3dImg from '@/assets/kiosk/kiosk_3d.png';
 
 interface TicketEasyPageProps {
   onPageChange?: (page: string | null) => void;
@@ -69,9 +70,25 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
                   <FlipText text={`/${t('description')}/`} />
                 </h3>
               </div>
-              <div className="p-4">
-                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }} translate="no">
+              <div className="p-2 md:p-4">
+                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Geist Mono', sans-serif", fontWeight: 400 }} translate="no">
                   {t('ticketEasyDesc')}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Internship Card */}
+          <div className="w-full max-w-xs">
+            <div className="w-[90%] sm:w-[320px] md:w-[340px] lg:w-[380px] xl:w-[420px] border-2 card-border bg-card mx-auto">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-lg md:text-xl" translate="no">
+                  <FlipText text={`/${t('position')}/`} />
+                </h3>
+              </div>
+              <div className="p-2 md:p-4">
+                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Geist Mono', sans-serif", fontWeight: 400 }} translate="no">
+                  {t('ticketEasyPosition')}
                 </p>
               </div>
             </div>
@@ -99,8 +116,8 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
                   <FlipText text={`/${t('realisation')}/`} />
                 </h3>
               </div>
-              <div className="p-4">
-                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Inter', sans-serif", fontWeight: 400 }} translate="no">
+              <div className="p-2 md:p-4">
+                <p className="text-foreground leading-relaxed text-sm text-left" style={{ fontFamily: "'Geist Mono', sans-serif", fontWeight: 400 }} translate="no">
                   {t('realizationDesc')}
                 </p>
               </div>
@@ -131,6 +148,20 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
               </div>
               <div className="bg-secondary flex items-center justify-center aspect-[18.4/9]">
                 <img src={dashboardImg} alt="Dashboard" className="w-full h-full object-contain" />
+              </div>
+            </div>
+          </div>
+
+          {/* Webapp Card */}
+          <div className="w-full max-w-xs">
+            <div className="w-[90%] sm:w-[280px] md:w-[300px] lg:w-[320px] xl:w-[340px] border-2 card-border bg-card overflow-hidden mx-auto">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-lg" translate="no">
+                  <FlipText text="/WEBAPP/" />
+                </h3>
+              </div>
+              <div className="bg-secondary flex items-center justify-center">
+                <img src={webappImg} alt="Webapp" className="w-full h-full object-contain" />
               </div>
             </div>
           </div>
@@ -214,9 +245,27 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
                   <FlipText text={`/${t('description')}/`} />
                 </h3>
               </div>
-              <div className="p-6">
-                <p className="font-body text-foreground leading-relaxed text-sm md:text-base">
+              <div className="p-4">
+                <p className="text-foreground leading-relaxed text-sm md:text-base" style={{ fontFamily: "'Geist Mono', sans-serif", fontWeight: 400 }}>
                   {t('ticketEasyDesc')}
+                </p>
+              </div>
+            </div>
+          </div>
+        </DraggableCard>
+
+        {/* Internship Card - Above Dashboard */}
+        <DraggableCard initialX={1050} initialY={80} zIndex={4}>
+          <div className="animate-card-pop" style={{ animationDelay: '120ms' }}>
+            <div className="w-[280px] md:w-[340px] border-2 card-border bg-card">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-xl md:text-2xl" translate="no">
+                  <FlipText text={`/${t('position')}/`} />
+                </h3>
+              </div>
+              <div className="p-4">
+                <p className="text-foreground leading-relaxed text-sm md:text-base" style={{ fontFamily: "'Geist Mono', sans-serif", fontWeight: 400 }}>
+                  {t('ticketEasyPosition')}
                 </p>
               </div>
             </div>
@@ -264,8 +313,8 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
                   <FlipText text={`/${t('realisation')}/`} />
                 </h3>
               </div>
-              <div className="p-6">
-                <p className="font-body text-foreground leading-relaxed text-sm md:text-base">
+              <div className="p-4">
+                <p className="text-foreground leading-relaxed text-sm md:text-base" style={{ fontFamily: "'Geist Mono', sans-serif", fontWeight: 400 }}>
                   {t('realizationDesc')}
                 </p>
               </div>
@@ -289,13 +338,29 @@ const TicketEasyPage = ({ onPageChange }: TicketEasyPageProps) => {
           </div>
         </DraggableCard>
 
+        {/* Webapp Card - Right of Dashboard */}
+        <DraggableCard initialX={700} initialY={200} zIndex={1}>
+          <div className="animate-card-pop" style={{ animationDelay: '440ms' }}>
+            <div className="w-[240px] md:w-[280px] border-2 card-border bg-card overflow-hidden">
+              <div className="border-b-2 card-border px-4 pt-2">
+                <h3 className="card-header text-xl md:text-2xl" translate="no">
+                  <FlipText text="/WEBAPP/" />
+                </h3>
+              </div>
+              <div className="bg-secondary flex items-center justify-center">
+                <img src={webappImg} alt="Webapp" className="w-full h-full object-contain" />
+              </div>
+            </div>
+          </div>
+        </DraggableCard>
+
         {/* View Project Card - Bottom Center */}
         <DraggableCard initialX={390} initialY={620} zIndex={4}>
           <div className="animate-card-pop" style={{ animationDelay: '480ms' }}>
             <div className="w-[250px] md:w-[250px] border-2 card-border bg-card">
               <div className="relative border-b-2 card-border px-4 pt-2">
                 <h3 className="card-header text-xl md:text-2xl" translate="no">
-                  <FlipText text={`/${t('view')}/`} />
+                  <FlipText text={`/${t('website')}/`} />
                 </h3>
                 <a
                   href="https://ticketeasy.tech/"

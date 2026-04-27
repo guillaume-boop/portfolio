@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap');
 
 @font-face {
   font-family: 'Ethnocentric';
@@ -52,7 +52,7 @@
 
     /* Typography */
     --font-display: 'Ethnocentric', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-body: 'Geist Mono', sans-serif;
     --font-heading: 'Ethnocentric', sans-serif;
   }
 

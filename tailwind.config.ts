@@ -56,7 +56,7 @@ export default {
       },
       fontFamily: {
         display: ['Orbitron', 'sans-serif'],
-        body: ['Space Grotesk', 'sans-serif'],
+        body: ['Geist Mono', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

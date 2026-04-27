@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,12 +11,22 @@ import StepPage from "./pages/StepPage";
 import TicketEasyPage from "./pages/TicketEasyPage";
 import ProfilePage from "./pages/ProfilePage";
 import DesignPage from "./pages/DesignPage";
+import MichelinPage from "./pages/MichelinPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  useEffect(() => {
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+    document.addEventListener("contextmenu", handleContextMenu);
+    return () => document.removeEventListener("contextmenu", handleContextMenu);
+  }, []);
+
+  return (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
       <TooltipProvider>
@@ -29,6 +40,7 @@ const App = () => (
             <Route path="/ticket-easy" element={<TicketEasyPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/design" element={<DesignPage />} />
+            <Route path="/michelin" element={<MichelinPage />} />
             <Route path="/contact" element={<ContactPage />} />
             {/* LinkedIn and GitHub redirect externally */}
             <Route path="*" element={<NotFound />} />
@@ -37,6 +49,7 @@ const App = () => (
       </TooltipProvider>
     </LanguageProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;

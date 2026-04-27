@@ -1,43 +1,43 @@
 import { Eye } from 'lucide-react';
 import FlipText from '../FlipText';
-import profileImg from '@/assets/profile/profile.jpeg';
+import starMichelinImg from '@/assets/michelin/star-michelin.png';
 
-interface ProfileCardProps {
+interface MichelinCardProps {
   className?: string;
   onPageChange?: (page: string) => void;
 }
 
-const ProfileCard = ({ className = '', onPageChange }: ProfileCardProps) => {
+const MichelinCard = ({ className = '', onPageChange }: MichelinCardProps) => {
   return (
-    <div className={`w-[280px] md:w-[320px] border-2 card-border ${className}`}>
+    <div className={`w-[320px] md:w-[380px] border-2 card-border ${className}`}>
       {/* Header */}
       <div className="relative border-b-2 card-border px-3 pt-2">
         <h3 className="card-header text-xl md:text-2xl" translate="no">
-          <FlipText text="/PROFILE/" />
+          <FlipText text="/GUIDE MICHELIN/" />
         </h3>
         <button
           onClick={(e) => {
             e.stopPropagation();
-            onPageChange?.('profile');
+            onPageChange?.('michelin');
           }}
           className="card-header-btn absolute top-0.5 right-0.5"
-          aria-label="View Profile"
+          aria-label="View Michelin projects"
           translate="no"
         >
           <Eye className="w-5 h-5" />
         </button>
       </div>
-      
+
       {/* Content */}
-      <div className="flex items-center justify-center aspect-[4/3] bg-secondary overflow-hidden">
-        <img 
-          src={profileImg} 
-          alt="Profile" 
-          className="w-full h-full object-cover" 
+      <div className="flex items-center justify-center aspect-[826/560] bg-secondary overflow-hidden">
+        <img
+          src={starMichelinImg}
+          alt="Michelin"
+          className="w-1/2 h-1/2 object-contain"
         />
       </div>
     </div>
   );
 };
 
-export default ProfileCard;
+export default MichelinCard;

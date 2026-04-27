@@ -10,12 +10,14 @@ import LinkedInCard from '@/components/portfolio/cards/LinkedInCard';
 import TicketEasyCard from '@/components/portfolio/cards/TicketEasyCard';
 import ProfileCard from '@/components/portfolio/cards/ProfileCard';
 import DesignCard from '@/components/portfolio/cards/DesignCard';
+import MichelinCard from '@/components/portfolio/cards/MichelinCard';
 import TypewriterText from '@/components/portfolio/TypewriterText';
 import { useLanguage } from '@/contexts/LanguageContext';
 import StepPage from './StepPage';
 import TicketEasyPage from './TicketEasyPage';
 import ProfilePage from './ProfilePage';
 import DesignPage from './DesignPage';
+import MichelinPage from './MichelinPage';
 
 const Index = () => {
   const { t } = useLanguage();
@@ -47,6 +49,9 @@ const Index = () => {
   if (currentPage === 'design') {
     return <DesignPage onPageChange={setCurrentPage} />;
   }
+  if (currentPage === 'michelin') {
+    return <MichelinPage onPageChange={setCurrentPage} />;
+  }
 
   // Mobile view - simple list navigation
   if (isMobile) {
@@ -65,6 +70,7 @@ const Index = () => {
             { label: '/TICKET-EASY/', key: 'ticketEasy', external: false },
             { label: '/STEP/', key: 'step', external: false },
             { label: '/DESIGN/', key: 'design', external: false },
+            { label: '/GUIDE MICHELIN/', key: 'michelin', external: false },
             { label: '/LINKEDIN/', key: 'linkedin', external: true, url: 'https://www.linkedin.com/in/guillaume-alameda-92b533217/' },
             { label: '/GITHUB/', key: 'github', external: true, url: 'https://github.com/guillaume-boop' },
           ].map((item, index) => (
@@ -137,7 +143,7 @@ const Index = () => {
         </DraggableCard>
 
         {/* GitHub Card - Center */}
-        <DraggableCard initialX={620} initialY={320} zIndex={3}>
+        <DraggableCard initialX={570} initialY={380} zIndex={3}>
           <div className="animate-card-pop" style={{ animationDelay: '240ms' }}>
             <ProfileCard onPageChange={setCurrentPage} />
           </div>
@@ -161,6 +167,13 @@ const Index = () => {
         <DraggableCard initialX={900} initialY={450} zIndex={7}>
           <div className="animate-card-pop" style={{ animationDelay: '480ms' }}>
             <DesignCard onPageChange={setCurrentPage} />
+          </div>
+        </DraggableCard>
+
+        {/* MICHELIN Card - Bottom left */}
+        <DraggableCard initialX={650} initialY={200} zIndex={1}>
+          <div className="animate-card-pop" style={{ animationDelay: '560ms' }}>
+            <MichelinCard onPageChange={setCurrentPage} />
           </div>
         </DraggableCard>
       </div>

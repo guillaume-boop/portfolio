@@ -16,6 +16,7 @@ const navItems = [
   { key: 'ticketEasy', label: '/TICKET-EASY/' },
   { key: 'step', label: '/STEP/' },
   { key: 'design', label: '/DESIGN/' },
+  { key: 'michelin', label: '/GUIDE MICHELIN/' },
   { key: 'linkedin', label: '/LINKEDIN/' },
   { key: 'github', label: '/GITHUB/' },
 ];
@@ -28,10 +29,11 @@ const PageTitle = ({ title, showNav = true, onPageChange }: PageTitleProps) => {
   const [buttonWidth, setButtonWidth] = useState(0);
   const [buttonPos, setButtonPos] = useState({ top: 0, left: 0 });
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const { language } = useLanguage();
+  const { t } = useLanguage();
 
   // Show nav button on desktop or when showNav is explicitly true
   const shouldShowNav = showNav || window.innerWidth >= 768;
+  const isDesktop = window.innerWidth >= 768;
 
   const handleClose = () => {
     setIsClosing(true);
@@ -93,11 +95,11 @@ const PageTitle = ({ title, showNav = true, onPageChange }: PageTitleProps) => {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative flex items-center">
         <button
           ref={buttonRef}
           onClick={handleButtonClick}
-          className="text-2xl md:text-3xl px-4 pt-2 font-bold tracking-wider uppercase transition-colors"
+          className="text-2xl md:text-3xl pl-4 pr-1 pt-2 font-bold tracking-wider uppercase transition-colors"
           style={{
             fontFamily: "'Ethnocentric', sans-serif",
             backgroundColor: 'rgba(0, 0, 0, 0.2)',
@@ -105,7 +107,7 @@ const PageTitle = ({ title, showNav = true, onPageChange }: PageTitleProps) => {
           }}
           translate="no"
         >
-          <TypewriterText 
+          <TypewriterText
             text={`/${title}/`}
             speed={40}
             delay={0}
@@ -113,6 +115,15 @@ const PageTitle = ({ title, showNav = true, onPageChange }: PageTitleProps) => {
             key={title}
           />
         </button>
+        {(isDesktop || title !== t('home')) && (
+          <button
+            onClick={handleButtonClick}
+            className="flex items-center justify-center transition-transform duration-300"
+            style={{ transform: isNavOpen ? 'rotate(90deg)' : 'rotate(0deg)' }}
+          >
+            <img src="/burger-button.svg" alt="Menu" className="h-8 w-8 md:h-10 md:w-10" />
+          </button>
+        )}
       </div>
 
       {showNav && shouldShowNav && isNavOpen && createPortal(
@@ -132,9 +143,8 @@ const PageTitle = ({ title, showNav = true, onPageChange }: PageTitleProps) => {
           {navItems
             .filter((item) => {
               // Ne pas afficher la page actuelle
-              const currentPage = title.toUpperCase().replace(/-/g, '').replace(/\s/g, '');
-              const itemPage = item.label.toUpperCase().replace(/\//g, '').replace(/-/g, '').replace(/\s/g, '');
-              return currentPage !== itemPage;
+              const normalize = (str: string) => str.toUpperCase().replace(/[^\w]/g, '');
+              return normalize(title) !== normalize(item.label);
             })
             .map((item) => (
               <button
