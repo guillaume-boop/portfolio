@@ -117,7 +117,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
                   <FlipText text={`/${t('location')}/`} />
                 </h3>
               </div>
-              <div className="p-4">
+              <div className="p-2 sm:p-4">
                 <p className="font-body text-foreground leading-relaxed text-sm">
                   {t('locationDesc')}
                 </p>
@@ -133,7 +133,7 @@ const ProfilePage = ({ onPageChange }: ProfilePageProps) => {
                   <FlipText text={`/${t('contactInfo')}/`} />
                 </h3>
               </div>
-              <div className="p-4">
+              <div className="p-2 sm:p-4">
                 <a href="mailto:guillaume.alameda@gmail.com" className="font-body text-foreground hover:text-secondary transition-colors text-sm break-all">
                   {t('email')}
                 </a>
