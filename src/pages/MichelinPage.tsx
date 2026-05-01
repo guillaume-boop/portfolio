@@ -33,7 +33,7 @@ const MichelinPage = ({ onPageChange }: MichelinPageProps) => {
     { src: searchImg, label: 'FIND', aspect: 'aspect-[15/32]', width: 'w-[140px] md:w-[170px]' },
     { type: 'text', label: t('contexte'), content: t('contexteDesc'), width: 'w-[280px] md:w-[340px]' },
     { type: 'text', label: t('solution'), content: t('solutionDesc'), width: 'w-[280px] md:w-[340px]' },
-    { type: 'text', label: t('project'), link: 'https://github.com/guillaume-boop', width: 'w-[280px] md:w-[340px]' },
+    { type: 'text', label: t('project'), link: 'https://hackathon-michelin.vercel.app/', width: 'w-[280px] md:w-[340px]' },
   ];
 
   useEffect(() => {
