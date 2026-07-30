@@ -11,6 +11,7 @@ import TicketEasyCard from '@/components/portfolio/cards/TicketEasyCard';
 import ProfileCard from '@/components/portfolio/cards/ProfileCard';
 import DesignCard from '@/components/portfolio/cards/DesignCard';
 import MichelinCard from '@/components/portfolio/cards/MichelinCard';
+import XrpCard from '@/components/portfolio/cards/XrpCard';
 import TypewriterText from '@/components/portfolio/TypewriterText';
 import { useLanguage } from '@/contexts/LanguageContext';
 import StepPage from './StepPage';
@@ -18,6 +19,7 @@ import TicketEasyPage from './TicketEasyPage';
 import ProfilePage from './ProfilePage';
 import DesignPage from './DesignPage';
 import MichelinPage from './MichelinPage';
+import XrpPage from './XrpPage';
 
 const Index = () => {
   const { t } = useLanguage();
@@ -52,6 +54,9 @@ const Index = () => {
   if (currentPage === 'michelin') {
     return <MichelinPage onPageChange={setCurrentPage} />;
   }
+  if (currentPage === 'xrp') {
+    return <XrpPage onPageChange={setCurrentPage} />;
+  }
 
   // Mobile view - simple list navigation
   if (isMobile) {
@@ -71,6 +76,7 @@ const Index = () => {
             { label: '/STEP/', key: 'step', external: false },
             { label: '/DESIGN/', key: 'design', external: false },
             { label: '/GUIDE MICHELIN/', key: 'michelin', external: false },
+            { label: '/XRP MARKETPLACE/', key: 'xrp', external: false },
             { label: '/LINKEDIN/', key: 'linkedin', external: true, url: 'https://www.linkedin.com/in/guillaume-alameda-92b533217/' },
             { label: '/GITHUB/', key: 'github', external: true, url: 'https://github.com/guillaume-boop' },
           ].map((item, index) => (
@@ -122,58 +128,65 @@ const Index = () => {
       {/* Draggable Cards Container */}
       <div className="w-full h-screen">
         {/* STEP Card - Top center-left */}
-        <DraggableCard initialX={330} initialY={80} zIndex={0}>
+        <DraggableCard initialX={455} initialY={50} zIndex={0}>
           <div className="animate-card-pop" style={{ animationDelay: '0ms' }}>
             <StepCard onPageChange={setCurrentPage} />
           </div>
         </DraggableCard>
 
         {/* TICKET-EASY Card - Top right */}
-        <DraggableCard initialX={900} initialY={100} zIndex={1}>
+        <DraggableCard initialX={895} initialY={35} zIndex={1}>
           <div className="animate-card-pop" style={{ animationDelay: '80ms' }}>
             <TicketEasyCard onPageChange={setCurrentPage} />
           </div>
         </DraggableCard>
 
         {/* LINKEDIN Card - Left side */}
-        <DraggableCard initialX={170} initialY={350} zIndex={2}>
+        <DraggableCard initialX={265} initialY={240} zIndex={3}>
           <div className="animate-card-pop" style={{ animationDelay: '160ms' }}>
             <LinkedInCard />
           </div>
         </DraggableCard>
 
         {/* GitHub Card - Center */}
-        <DraggableCard initialX={570} initialY={380} zIndex={3}>
+        <DraggableCard initialX={550} initialY={365} zIndex={6}>
           <div className="animate-card-pop" style={{ animationDelay: '240ms' }}>
             <ProfileCard onPageChange={setCurrentPage} />
           </div>
         </DraggableCard>
 
         {/* GitHub Card - Right side */}
-        <DraggableCard initialX={1050} initialY={280} zIndex={4}>
+        <DraggableCard initialX={1045} initialY={265} zIndex={2}>
           <div className="animate-card-pop" style={{ animationDelay: '320ms' }}>
             <GitHubCard />
           </div>
         </DraggableCard>
 
         {/* Contact Card - Bottom center */}
-        <DraggableCard initialX={420} initialY={600} zIndex={5}>
+        <DraggableCard initialX={240} initialY={595} zIndex={5}>
           <div className="animate-card-pop" style={{ animationDelay: '400ms' }}>
             <ContactCard />
           </div>
         </DraggableCard>
 
         {/* DESIGN Card - Bottom right */}
-        <DraggableCard initialX={900} initialY={450} zIndex={7}>
+        <DraggableCard initialX={890} initialY={435} zIndex={7}>
           <div className="animate-card-pop" style={{ animationDelay: '480ms' }}>
             <DesignCard onPageChange={setCurrentPage} />
           </div>
         </DraggableCard>
 
         {/* MICHELIN Card - Bottom left */}
-        <DraggableCard initialX={650} initialY={200} zIndex={1}>
+        <DraggableCard initialX={635} initialY={255} zIndex={4}>
           <div className="animate-card-pop" style={{ animationDelay: '560ms' }}>
             <MichelinCard onPageChange={setCurrentPage} />
+          </div>
+        </DraggableCard>
+
+        {/* XRP MARKETPLACE Card - Over DESIGN, aligned with CONTACT */}
+        <DraggableCard initialX={965} initialY={525} zIndex={8}>
+          <div className="animate-card-pop" style={{ animationDelay: '640ms' }}>
+            <XrpCard onPageChange={setCurrentPage} />
           </div>
         </DraggableCard>
       </div>

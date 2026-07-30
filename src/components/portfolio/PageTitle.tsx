@@ -18,6 +18,7 @@ const navItems = [
   { key: 'step', label: '/STEP/' },
   { key: 'design', label: '/DESIGN/' },
   { key: 'michelin', label: '/GUIDE MICHELIN/' },
+  { key: 'xrp', label: '/XRP MARKETPLACE/' },
   { key: 'linkedin', label: '/LINKEDIN/' },
   { key: 'github', label: '/GITHUB/' },
 ];

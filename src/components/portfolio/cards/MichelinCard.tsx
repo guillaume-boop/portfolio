@@ -29,11 +29,15 @@ const MichelinCard = ({ className = '', onPageChange }: MichelinCardProps) => {
       </div>
 
       {/* Content */}
-      <div className="flex items-center justify-center aspect-[826/560] bg-secondary overflow-hidden">
+      <div
+        className="flex items-center justify-center aspect-[16/6] overflow-hidden"
+        style={{ backgroundColor: '#BD2333' }}
+      >
         <img
           src={starMichelinImg}
           alt="Michelin"
-          className="w-1/2 h-1/2 object-contain"
+          className="h-3/4 object-contain"
+          style={{ filter: 'brightness(0) invert(1)' }}
         />
       </div>
     </div>

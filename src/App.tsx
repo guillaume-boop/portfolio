@@ -12,6 +12,7 @@ import TicketEasyPage from "./pages/TicketEasyPage";
 import ProfilePage from "./pages/ProfilePage";
 import DesignPage from "./pages/DesignPage";
 import MichelinPage from "./pages/MichelinPage";
+import XrpPage from "./pages/XrpPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
@@ -41,6 +42,7 @@ const App = () => {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/design" element={<DesignPage />} />
             <Route path="/michelin" element={<MichelinPage />} />
+            <Route path="/xrp" element={<XrpPage />} />
             <Route path="/contact" element={<ContactPage />} />
             {/* LinkedIn and GitHub redirect externally */}
             <Route path="*" element={<NotFound />} />

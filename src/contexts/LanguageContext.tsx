@@ -99,6 +99,18 @@ const translations: Translations = {
   },
   project: { fr: 'PROJET', en: 'PROJECT' },
   view: { fr: 'VOIR', en: 'VIEW' },
+  xrpMarketplace: { fr: 'XRP MARKETPLACE', en: 'XRP MARKETPLACE' },
+  collection: { fr: 'COLLECTION', en: 'COLLECTION' },
+  assetsOnChain: { fr: 'ASSETS ON CHAIN', en: 'ASSETS ON CHAIN' },
+  asset: { fr: 'ASSET', en: 'ASSET' },
+  xrpContexteDesc: {
+    fr: "Actify est une marketplace de NFT bâtie sur le XRP Ledger, permettant aux créateurs de tokeniser leurs œuvres et de vendre des licences d'utilisation directement en XRP, sans intermédiaire.",
+    en: "Actify is an NFT marketplace built on the XRP Ledger, allowing creators to tokenize their artwork and sell usage licenses directly in XRP, without any intermediary."
+  },
+  xrpSolutionDesc: {
+    fr: "Les créateurs regroupent leurs assets en collections, définissent un prix en XRP et un taux de royalties reversé à chaque revente. Chaque achat mint un NFToken sur le XRP Ledger et débloque le téléchargement du fichier source.",
+    en: "Creators group their assets into collections, set a price in XRP and a royalty rate paid out on every resale. Each purchase mints an NFToken on the XRP Ledger and unlocks the download of the source file."
+  },
 };
 
 interface LanguageContextType {
