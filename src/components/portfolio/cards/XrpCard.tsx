@@ -1,6 +1,6 @@
 import { Eye } from 'lucide-react';
 import FlipText from '../FlipText';
-import actifyLogo from '@/assets/xrp/actify-logo.svg';
+import collectionImg from '@/assets/xrp/collection.png';
 
 interface XrpCardProps {
   className?: string;
@@ -28,18 +28,12 @@ const XrpCard = ({ className = '', onPageChange }: XrpCardProps) => {
         </button>
       </div>
 
-      {/* Content - Actify hero gradient */}
-      <div
-        className="flex items-center justify-center aspect-[16/5] overflow-hidden"
-        style={{
-          background:
-            'radial-gradient(circle at 100% 120%, rgba(30, 42, 36, 0.55) 0%, transparent 60%), linear-gradient(100deg, #16213c 0%, #10151f 40%, #0f131a 72%, #171b1a 100%)',
-        }}
-      >
+      {/* Content */}
+      <div className="aspect-[16/9] overflow-hidden">
         <img
-          src={actifyLogo}
-          alt="Actify"
-          className="w-1/2 object-contain"
+          src={collectionImg}
+          alt="Actify - collection The Croc Ape's"
+          className="w-full h-full object-cover object-top"
         />
       </div>
     </div>

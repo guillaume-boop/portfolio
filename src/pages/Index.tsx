@@ -183,8 +183,8 @@ const Index = () => {
           </div>
         </DraggableCard>
 
-        {/* XRP MARKETPLACE Card - Over DESIGN, aligned with CONTACT */}
-        <DraggableCard initialX={965} initialY={525} zIndex={8}>
+        {/* XRP MARKETPLACE Card - Bottom center, next to CONTACT */}
+        <DraggableCard initialX={620} initialY={515} zIndex={8}>
           <div className="animate-card-pop" style={{ animationDelay: '640ms' }}>
             <XrpCard onPageChange={setCurrentPage} />
           </div>
